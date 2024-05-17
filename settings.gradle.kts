@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Mercado Libre Search"
 include(":app")
- 
+include(":features:home")
+include(":features:search")
+include(":features:product")
