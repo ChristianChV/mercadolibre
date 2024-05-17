@@ -4,19 +4,26 @@ kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
-espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.8.0"
 activityCompose = "1.9.0"
 composeBom = "2024.05.00"
 appcompat = "1.6.1"
 material = "1.12.0"
 klint = "12.1.1"
+retrofit = "2.11.0"
+hilt = "2.48"
+hiltAnnotation = "1.2.0"
+hiltNavigation = "1.2.0"
+coil = "2.4.0"
+room = "2.6.1"
+ksp = "1.9.24-1.0.20"
+coroutines = "1.7.3"
+androidxTestExpresso = "3.5.1"
+navigation = "2.7.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -29,10 +36,52 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+andoridx-compose-material = { module = "androidx.compose.material:material" }
+androidx-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+
+
+# Http Client
+retrofit-base = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+
+# Coroutines
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+
+# Databases
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room"}
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room"}
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room"}
+
+# Dependency Injection
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigation" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+hilt-annotation ={ module = "androidx.hilt:hilt-compiler", version.ref = "hiltAnnotation" }
+
+# Images
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+
+# Testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "androidxTestExpresso" }
+androidx-test-compose-junit = { module = "androidx.compose.ui:ui-test-junit4" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 klint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "klint"}
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 
+[bundles]
+retrofit = ["retrofit-base", "retrofit-converter"]
+hilt = ["hilt-android", "hilt-navigation", "hilt-compiler", "hilt-annotation"]
+coil = ["coil", "coil-compose"]
+room = ["room-runtime", "room-ktx"]
+compose = ["androidx-ui-tooling", "androidx-ui-tooling-preview", "androidx-ui", "androidx-ui-graphics", "androidx-material3", "androidx-navigation", "material", "andoridx-compose-material"]
+coroutines = ["coroutines-android", "androidx-core-ktx", "coroutines-core"]
+testing = ["junit"]
+androidTesting = ["androidx-junit", "androidx-espresso-core", "androidx-test-compose-junit"]
