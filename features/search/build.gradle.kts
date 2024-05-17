@@ -35,6 +35,8 @@ android {
 
 dependencies {
 
+    implementation(project(":commons:uiComponents"))
+
     implementation(libs.androidx.appcompat)
 
     implementation(libs.bundles.retrofit)
