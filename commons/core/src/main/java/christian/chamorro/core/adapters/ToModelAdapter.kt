@@ -1,4 +1,4 @@
-package christian.chamorro.uicomponents.adapters
+package christian.chamorro.core.adapters
 
 interface ToModelAdapter<Model, Data> {
 

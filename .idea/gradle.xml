@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/commons" />
+            <option value="$PROJECT_DIR$/commons/core" />
+            <option value="$PROJECT_DIR$/commons/network" />
             <option value="$PROJECT_DIR$/commons/uiComponents" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/home" />

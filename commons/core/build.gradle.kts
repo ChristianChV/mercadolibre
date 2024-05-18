@@ -1,11 +1,10 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "christian.chamorro.search"
+    namespace = "christian.chamorro.core"
     compileSdk = 34
 
     defaultConfig {
@@ -35,17 +34,10 @@ android {
 
 dependencies {
 
-    implementation(project(":commons:network"))
-    implementation(project(":commons:core"))
-
+    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-
-    implementation(libs.bundles.retrofit)
-    implementation(libs.bundles.hilt)
-    implementation(libs.bundles.coil)
-    implementation(libs.bundles.compose)
-    implementation(libs.bundles.coroutines)
-    implementation(libs.androidx.dataStore)
-    testImplementation(libs.bundles.testing)
-    androidTestImplementation(libs.bundles.androidTesting)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

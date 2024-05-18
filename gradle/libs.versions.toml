@@ -11,7 +11,7 @@ appcompat = "1.6.1"
 material = "1.12.0"
 klint = "12.1.1"
 retrofit = "2.11.0"
-hilt = "2.48"
+hilt = "2.49"
 hiltAnnotation = "1.2.0"
 hiltNavigation = "1.2.0"
 coil = "2.4.0"
@@ -20,6 +20,7 @@ ksp = "1.9.24-1.0.20"
 coroutines = "1.7.3"
 androidxTestExpresso = "3.5.1"
 navigation = "2.7.7"
+androidxDataStore = "1.1.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,6 +39,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 andoridx-compose-material = { module = "androidx.compose.material:material" }
 androidx-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+androidx-dataStore = { module = "androidx.datastore:datastore-preferences", version.ref = "androidxDataStore" }
 
 
 # Http Client
