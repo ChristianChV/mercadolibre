@@ -6,7 +6,7 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 lifecycleRuntimeKtx = "2.8.0"
 activityCompose = "1.9.0"
-composeBom = "2024.05.00"
+composeBom = "2023.08.00"
 appcompat = "1.6.1"
 material = "1.12.0"
 klint = "12.1.1"
@@ -19,9 +19,10 @@ room = "2.6.1"
 ksp = "1.9.24-1.0.20"
 coroutines = "1.7.3"
 androidxTestExpresso = "3.5.1"
-navigation = "2.7.7"
+navigation = "2.8.0-beta01"
 androidxDataStore = "1.1.1"
 kotlinBom = "1.8.22"
+serialization = "1.6.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,6 +45,7 @@ androidx-dataStore = { module = "androidx.datastore:datastore-preferences", vers
 
 # Kotlin
 kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlinBom" }
+kotlin-serialization-json ={ module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization"}
 
 
 # Http Client
@@ -82,6 +84,7 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 klint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "klint"}
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 
+
 [bundles]
 retrofit = ["retrofit-base", "retrofit-converter"]
 hilt = ["hilt-android", "hilt-navigation", "hilt-compiler", "hilt-annotation"]
@@ -91,3 +94,4 @@ compose = ["androidx-ui-tooling", "androidx-ui-tooling-preview", "androidx-ui", 
 coroutines = ["coroutines-android", "androidx-core-ktx", "coroutines-core"]
 testing = ["junit"]
 androidTesting = ["androidx-junit", "androidx-espresso-core", "androidx-test-compose-junit"]
+

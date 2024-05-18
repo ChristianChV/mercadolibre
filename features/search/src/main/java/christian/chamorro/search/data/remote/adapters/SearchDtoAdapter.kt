@@ -9,7 +9,7 @@ class SearchDtoAdapter
     @Inject
     constructor(
         private val searchProductAdapter: SearchProductAdapter,
-    ) : christian.chamorro.core.adapters.ToModelAdapter<SearchResult, SearchResultDto> {
+    ) : ToModelAdapter<SearchResult, SearchResultDto> {
         override fun toModel(data: SearchResultDto): SearchResult =
             SearchResult(
                 query = data.query,

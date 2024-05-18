@@ -5,7 +5,7 @@ import christian.chamorro.search.data.remote.dtos.SearchProductDto
 import christian.chamorro.search.domain.models.SearchProduct
 
 class SearchProductAdapter :
-    christian.chamorro.core.adapters.ToModelAdapter<SearchProduct, SearchProductDto> {
+    ToModelAdapter<SearchProduct, SearchProductDto> {
     override fun toModel(data: SearchProductDto): SearchProduct =
         SearchProduct(
             id = data.id,

@@ -5,9 +5,7 @@ import christian.chamorro.product.data.remote.dtos.ProductDto
 import christian.chamorro.product.domain.models.Product
 import javax.inject.Inject
 
-class ProductDtoAdapter @Inject constructor(
-    private val attributeAdapter: AttributeDtoAdapter
-): ToModelAdapter<Product, ProductDto> {
+class ProductDtoAdapter @Inject constructor(): ToModelAdapter<Product, ProductDto> {
     override fun toModel(data: ProductDto): Product = Product(
         id = data.id,
         title = data.title,
@@ -17,7 +15,7 @@ class ProductDtoAdapter @Inject constructor(
         initialQuantity = data.initialQuantity,
         acceptsMercadopago = data.acceptsMercadopago,
         warranty = data.warranty,
-        attributes = attributeAdapter.toModelList(data.attributes).map { it.copy(productId = data.id) },
+        attributes = AttributeDtoAdapter(data.id).toModelList(data.attributes),
         pictures = data.pictures.map { it.url }
     )
 }

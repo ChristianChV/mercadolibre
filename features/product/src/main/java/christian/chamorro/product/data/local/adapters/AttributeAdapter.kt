@@ -9,7 +9,6 @@ class AttributeAdapter :
     ToModelAdapter<Attribute, AttributeEntity>,
     FromModelAdapter<Attribute, AttributeEntity> {
     override fun fromModel(model: Attribute): AttributeEntity  = AttributeEntity(
-        id = "",
         productId = model.productId,
         name = model.name,
         valueName = model.valueName

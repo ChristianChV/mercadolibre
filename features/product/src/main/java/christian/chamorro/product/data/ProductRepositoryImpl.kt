@@ -17,11 +17,11 @@ class ProductRepositoryImpl @Inject constructor(
     }
 
     override suspend fun addToFavorites(product: Product) {
-        local.addToFavorites(product)
+        local.addFavorite(product)
     }
 
     override suspend fun removeFromFavorites(product: Product) {
-        local.removeFromFavorites(product)
+        local.removeFavorite(product)
     }
 
     override suspend fun getFavorites(): List<Product> {

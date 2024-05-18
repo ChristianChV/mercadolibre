@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
 ])
 data class AttributeEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: String,
+    val id: String? = null,
     val productId: String,
     val name: String,
     val valueName: String,

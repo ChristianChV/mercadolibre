@@ -10,15 +10,15 @@ import javax.inject.Inject
 class ProductLocalDataSourceImpl @Inject constructor(
     private val dao: ProductDao,
     private val commonAdapter: CommonEntityToProductAdapter,
-    private val toEntitiesAdapter: ProductToEntitiesAdapter
+    private val productAdapter: ProductToEntitiesAdapter
 ) : ProductLocalDataSource {
-    override suspend fun addToFavorites(product: Product) {
-        val (productEntity, attributeEntities) = toEntitiesAdapter.fromModel(product)
+    override suspend fun addFavorite(product: Product) {
+        val (productEntity, attributeEntities) = productAdapter.fromModel(product)
         dao.insertProductAndAttributes(productEntity, attributeEntities)
     }
 
-    override suspend fun removeFromFavorites(product: Product) {
-        val productEntity = toEntitiesAdapter.fromModel(product).first
+    override suspend fun removeFavorite(product: Product) {
+        val productEntity = productAdapter.fromModel(product).first
         dao.removeFromFavorites(productEntity)
     }
 

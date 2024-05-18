@@ -16,6 +16,7 @@ class SearchRepositoryImpl
         private val remote: SearchRemoteDataSource,
     ) : SearchRepository {
         override suspend fun getProductsByQuery(query: String): AsyncResult<SearchResult, NetworkErrors> {
+            local.saveQuery(query)
             return remote.getProductsByQuery(query)
         }
 

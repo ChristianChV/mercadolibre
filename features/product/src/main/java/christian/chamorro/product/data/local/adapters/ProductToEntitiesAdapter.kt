@@ -5,6 +5,7 @@ import christian.chamorro.product.data.local.entities.AttributeEntity
 import christian.chamorro.product.data.local.entities.ProductEntity
 import christian.chamorro.product.domain.models.Product
 import javax.inject.Inject
+import javax.inject.Singleton
 
 class ProductToEntitiesAdapter @Inject constructor(
     private val attributeAdapter: AttributeAdapter
