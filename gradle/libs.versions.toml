@@ -21,6 +21,7 @@ coroutines = "1.7.3"
 androidxTestExpresso = "3.5.1"
 navigation = "2.7.7"
 androidxDataStore = "1.1.1"
+kotlinBom = "1.8.22"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,6 +41,9 @@ material = { group = "com.google.android.material", name = "material", version.r
 andoridx-compose-material = { module = "androidx.compose.material:material" }
 androidx-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 androidx-dataStore = { module = "androidx.datastore:datastore-preferences", version.ref = "androidxDataStore" }
+
+# Kotlin
+kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlinBom" }
 
 
 # Http Client

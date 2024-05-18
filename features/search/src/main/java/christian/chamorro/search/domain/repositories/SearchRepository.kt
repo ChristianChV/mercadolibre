@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface SearchRepository {
     suspend fun getProductsByQuery(query: String): AsyncResult<SearchResult, NetworkErrors>
+
     suspend fun deleteQuery(query: String)
+
     suspend fun getQueries(): Flow<List<String>>
 }

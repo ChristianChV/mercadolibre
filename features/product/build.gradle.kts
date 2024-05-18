@@ -34,6 +34,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":commons:network"))
+    implementation(project(":commons:core"))
 
     implementation(libs.androidx.appcompat)
 
@@ -45,6 +47,9 @@ dependencies {
     implementation(libs.bundles.coroutines)
 
     ksp(libs.room.compiler)
+
+    implementation(platform(libs.kotlin.bom))
+    implementation(platform(libs.androidx.compose.bom))
 
     testImplementation(libs.bundles.testing)
     androidTestImplementation(libs.bundles.androidTesting)

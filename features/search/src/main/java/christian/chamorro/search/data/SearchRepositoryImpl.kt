@@ -9,17 +9,21 @@ import christian.chamorro.search.domain.repositories.SearchRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class SearchRepositoryImpl @Inject constructor(
-    private val local: SearchLocalDataSource,
-    private val remote: SearchRemoteDataSource
-) : SearchRepository {
-    override suspend fun getProductsByQuery(query: String): AsyncResult<SearchResult, NetworkErrors> {
-        return remote.getProductsByQuery(query)
+class SearchRepositoryImpl
+    @Inject
+    constructor(
+        private val local: SearchLocalDataSource,
+        private val remote: SearchRemoteDataSource,
+    ) : SearchRepository {
+        override suspend fun getProductsByQuery(query: String): AsyncResult<SearchResult, NetworkErrors> {
+            return remote.getProductsByQuery(query)
+        }
+
+        override suspend fun deleteQuery(query: String) {
+            local.deleteQuery(query)
+        }
+
+        override suspend fun getQueries(): Flow<List<String>> {
+            return local.getQueries()
+        }
     }
-    override suspend fun deleteQuery(query: String) {
-        local.deleteQuery(query)
-    }
-    override suspend fun getQueries(): Flow<List<String>> {
-        return local.getQueries()
-    }
-}

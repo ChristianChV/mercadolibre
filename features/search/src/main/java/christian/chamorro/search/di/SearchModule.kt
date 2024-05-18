@@ -16,17 +16,20 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object SearchModule {
-
     val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "dataStore")
 
     @Provides
     @Singleton
-    fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> {
+    fun provideDataStore(
+        @ApplicationContext context: Context,
+    ): DataStore<Preferences> {
         return context.dataStore
     }
 
     @Provides
     @Singleton
-    fun provideSearchApi(retrofit: Retrofit): SearchApi = retrofit.create(
-        SearchApi::class.java)
+    fun provideSearchApi(retrofit: Retrofit): SearchApi =
+        retrofit.create(
+            SearchApi::class.java,
+        )
 }
