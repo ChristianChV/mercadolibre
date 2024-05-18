@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.ksp)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -52,7 +52,7 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.bundles.coroutines)
 
-    ksp(libs.room.compiler)
+    //ksp(libs.room.compiler)
 
     implementation(platform(libs.kotlin.bom))
     implementation(platform(libs.androidx.compose.bom))
