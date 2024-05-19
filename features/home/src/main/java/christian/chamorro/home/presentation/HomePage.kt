@@ -1,5 +1,6 @@
 package christian.chamorro.home.presentation
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -29,7 +30,13 @@ fun HomePage(){
                     .fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Box(modifier = Modifier.weight(1f)){
 
+                }
+
+                Box(modifier = Modifier.weight(1f)){
+
+                }
             }
         }
     )
