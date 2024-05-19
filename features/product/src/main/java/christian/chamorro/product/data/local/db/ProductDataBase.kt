@@ -12,7 +12,8 @@ import com.google.gson.reflect.TypeToken
 
 @Database(
     entities = [ProductEntity::class, AttributeEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 @TypeConverters(PicturesTypeConverter::class)
 abstract class ProductDataBase : RoomDatabase() {

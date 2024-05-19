@@ -87,7 +87,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 
 [bundles]
 retrofit = ["retrofit-base", "retrofit-converter"]
-hilt = ["hilt-android", "hilt-navigation", "hilt-compiler", "hilt-annotation"]
+hilt = ["hilt-android", "hilt-navigation"]
 coil = ["coil", "coil-compose"]
 room = ["room-runtime", "room-ktx"]
 compose = ["androidx-ui-tooling", "androidx-ui-tooling-preview", "androidx-ui", "androidx-ui-graphics", "androidx-material3", "androidx-navigation", "material", "andoridx-compose-material"]

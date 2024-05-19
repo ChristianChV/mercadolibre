@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
 }
 
 android {
@@ -41,13 +42,12 @@ android {
 dependencies {
 
     implementation(libs.androidx.appcompat)
-
     implementation(libs.bundles.hilt)
     implementation(libs.bundles.compose)
-
     implementation(platform(libs.kotlin.bom))
     implementation(platform(libs.androidx.compose.bom))
-
+    kapt(libs.hilt.compiler)
+    kapt(libs.hilt.annotation)
     testImplementation(libs.bundles.testing)
     androidTestImplementation(libs.bundles.androidTesting)
 }

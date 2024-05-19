@@ -1,6 +1,7 @@
 package christian.chamorro.product.data.local.daos
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
@@ -18,7 +19,7 @@ interface ProductDao {
         attributes: List<AttributeEntity>
     )
 
-    @DELETE
+    @Delete
     suspend fun removeFromFavorites(product: ProductEntity)
 
     @Transaction
