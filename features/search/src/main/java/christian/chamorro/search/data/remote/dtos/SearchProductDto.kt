@@ -8,7 +8,7 @@ data class SearchProductDto(
     val permalink: String,
     val thumbnail: String,
     @SerializedName("original_price")
-    val originalPrice: Long,
+    val originalPrice: Double,
     @SerializedName("available_quantity")
     val availableQuantity: Int,
 )

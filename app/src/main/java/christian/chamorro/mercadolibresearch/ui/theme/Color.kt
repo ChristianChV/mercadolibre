@@ -2,11 +2,11 @@ package christian.chamorro.mercadolibresearch.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val md_theme_light_primary = Color(0xFF11244D)
+val md_theme_light_primary = Color(0xFF313379)
 val md_theme_light_onPrimary = Color(0xFFffffff)
 val md_theme_light_primaryContainer = Color(0xFFF0F2FC)
 val md_theme_light_onPrimaryContainer = Color(0xFF561E00)
-val md_theme_light_secondary = Color(0xFFF9AA33)
+val md_theme_light_secondary = Color(0xFFFFC500)
 val md_theme_light_onSecondary = Color(0xFFF3F6F8)
 val md_theme_light_secondaryContainer = Color(0xFFF9AA33)
 val md_theme_light_onSecondaryContainer = Color(0xFF2A1800)

@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.google.hilt)
+    id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
 }
 
@@ -43,6 +45,7 @@ dependencies {
 
     implementation(project(":commons:network"))
     implementation(project(":commons:core"))
+    implementation(project(":commons:uiComponents"))
 
     implementation(libs.androidx.appcompat)
     implementation(libs.bundles.retrofit)

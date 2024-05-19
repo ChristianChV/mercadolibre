@@ -14,10 +14,10 @@ import javax.inject.Singleton
 object NetworkModule {
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(): Retrofit {
         return Retrofit
             .Builder()
-            .client(okHttpClient)
+            .baseUrl("https://api.mercadolibre.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

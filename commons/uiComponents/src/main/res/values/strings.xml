@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nat_button_back">Atrás</string>
+    <string name="error">Error</string>
+    <string name="recharge">Recargar</string>
+</resources>

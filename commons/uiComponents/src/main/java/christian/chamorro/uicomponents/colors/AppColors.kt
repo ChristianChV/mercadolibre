@@ -4,7 +4,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-enum class MyColors{
+enum class AppColors{
     Primary,
     OnPrimary,
     PrimaryContainer,

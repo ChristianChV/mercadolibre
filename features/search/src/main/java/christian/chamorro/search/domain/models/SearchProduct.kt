@@ -5,6 +5,6 @@ data class SearchProduct(
     val title: String,
     val permalink: String,
     val thumbnail: String,
-    val originalPrice: Long,
+    val originalPrice: Double,
     val availableQuantity: Int,
 )

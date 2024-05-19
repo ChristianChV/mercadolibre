@@ -13,8 +13,8 @@ sealed class NetworkErrors(val msg: String) {
     companion object {
         fun fromException(remoteException: Exception): NetworkErrors {
             return when (remoteException) {
-                is IOException -> NetworkErrors.NoInternetException
-                is HttpException -> NetworkErrors.ApiException(remoteException.code().toString())
+                is IOException -> NoInternetException
+                is HttpException -> ApiException(remoteException.code().toString())
                 else -> UnknownException
             }
         }

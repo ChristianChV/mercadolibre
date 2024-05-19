@@ -1,6 +1,9 @@
 package christian.chamorro.search.domain.usecases
 
 import christian.chamorro.search.domain.repositories.SearchRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import okhttp3.Dispatcher
 import javax.inject.Inject
 
 class DeleteQueryUseCase
@@ -8,7 +11,7 @@ class DeleteQueryUseCase
     constructor(
         private val repository: SearchRepository,
     ) {
-        suspend operator fun invoke(query: String) {
+        suspend operator fun invoke(query: String) = withContext(Dispatchers.IO) {
             repository.deleteQuery(query)
         }
     }

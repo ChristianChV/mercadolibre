@@ -8,13 +8,14 @@ import christian.chamorro.home.presentation.HomePage
 import christian.chamorro.home.routes.HomeRoutes
 
 fun NavGraphBuilder.homeGraph(
-    navController: NavController,
-    onGoToSearch: (String)->Unit
+    goToSearch: ()->Unit
 ){
     navigation(startDestination = HomeRoutes.Home.route, route = HomeRoutes.Root.route) {
 
         composable(HomeRoutes.Home.route){
-            HomePage()
+            HomePage(
+                goToSearch = goToSearch
+            )
         }
     }
 }

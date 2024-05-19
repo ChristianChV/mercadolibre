@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.google.hilt)
+    id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
 }
 
@@ -10,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "christian.chamorro.mercadolibresearch"
-        minSdk = 28
+        minSdk = 31
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -68,6 +70,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.bundles.hilt)
+
+    kapt(libs.hilt.compiler)
+    kapt(libs.hilt.annotation)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
