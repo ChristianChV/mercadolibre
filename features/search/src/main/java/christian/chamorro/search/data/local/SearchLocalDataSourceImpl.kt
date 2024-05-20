@@ -26,12 +26,11 @@ class SearchLocalDataSourceImpl
             dataStore.edit {
                 val currentQueries = it[queries]?.toList() ?: emptyList()
                 val lastQuery = listOf(query) + currentQueries
-                if (lastQuery.indices.last > 9){
+                if (lastQuery.indices.last > 9) {
                     it[queries] = lastQuery.subList(0, 10).toSet()
-                }else{
+                } else {
                     it[queries] = lastQuery.toSet()
                 }
-
             }
         }
 

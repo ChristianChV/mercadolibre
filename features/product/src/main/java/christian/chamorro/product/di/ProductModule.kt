@@ -16,8 +16,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ProductModule {
-
-
     @Provides
     @Singleton
     fun provideProductApi(retrofit: Retrofit): ProductApi =
@@ -27,7 +25,9 @@ object ProductModule {
 
     @Provides
     @Singleton
-    fun provideProductDataBase(@ApplicationContext context: Context): ProductDataBase {
+    fun provideProductDataBase(
+        @ApplicationContext context: Context,
+    ): ProductDataBase {
         return Room.databaseBuilder(context, ProductDataBase::class.java, "productDB").build()
     }
 

@@ -5,7 +5,6 @@ import org.junit.Test
 import kotlin.text.Typography.nbsp
 
 class CurrencyTest {
-
     @Test
     fun `toCurrency when it is called should return currency value `() {
         // Given

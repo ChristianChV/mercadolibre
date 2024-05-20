@@ -8,14 +8,17 @@ import androidx.room.PrimaryKey
 /**
  * Attribute entity class.
  */
-@Entity(tableName = "attribute", foreignKeys = [
-    ForeignKey(
-        entity = ProductEntity::class,
-        parentColumns = ["id"],
-        childColumns = ["productId"],
-        onDelete = ForeignKey.CASCADE
-    )
-])
+@Entity(
+    tableName = "attribute",
+    foreignKeys = [
+        ForeignKey(
+            entity = ProductEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["productId"],
+            onDelete = ForeignKey.CASCADE,
+        ),
+    ],
+)
 data class AttributeEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long? = null,

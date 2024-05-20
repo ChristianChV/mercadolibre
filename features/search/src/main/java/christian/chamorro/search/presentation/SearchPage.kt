@@ -38,9 +38,8 @@ fun SearchPage(
     goToProductDetail: (String) -> Unit,
     searchState: SearchPageState,
     queryState: SearchQueryState,
-    onEvent: (SearchPageEvent) -> Unit
+    onEvent: (SearchPageEvent) -> Unit,
 ) {
-
     BackHandler(searchState.activePage == Result) {
         onEvent(SearchPageEvent.SetActivePage(Queries))
     }
@@ -49,19 +48,21 @@ fun SearchPage(
         onEvent(SearchPageEvent.GetQueries)
     }
 
-    val query = remember {
-        mutableStateOf("")
-    }
+    val query =
+        remember {
+            mutableStateOf("")
+        }
 
-    val interactionSourceQuery = remember {
-        MutableInteractionSource()
-    }
+    val interactionSourceQuery =
+        remember {
+            MutableInteractionSource()
+        }
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(id = R.string.search_title)) },
-                navigationIcon = navigationButton
+                navigationIcon = navigationButton,
             )
         },
         content = { contentPadding ->
@@ -69,64 +70,67 @@ fun SearchPage(
                 Modifier
                     .padding(contentPadding)
                     .fillMaxSize()
-                    .padding(12.dp)
+                    .padding(12.dp),
             ) {
-
                 TextField(
                     modifier = Modifier.fillMaxWidth(),
                     value = query.value,
                     onValueChange = { query.value = it },
                     trailingIcon = {
                         Icon(
-                            modifier = Modifier.clickable {
-                                if (query.value.isNotEmpty()) {
-                                    onEvent(SearchPageEvent.GetProductsByQuery(query.value))
-                                    onEvent(SearchPageEvent.SetActivePage(Result))
-                                }
-                            },
-                            painter = painterResource(
-                                id = christian.chamorro.uicomponents.R.drawable.search_icon
-                            ),
-                            contentDescription = stringResource(id = R.string.search)
+                            modifier =
+                                Modifier.clickable {
+                                    if (query.value.isNotEmpty()) {
+                                        onEvent(SearchPageEvent.GetProductsByQuery(query.value))
+                                        onEvent(SearchPageEvent.SetActivePage(Result))
+                                    }
+                                },
+                            painter =
+                                painterResource(
+                                    id = christian.chamorro.uicomponents.R.drawable.search_icon,
+                                ),
+                            contentDescription = stringResource(id = R.string.search),
                         )
                     },
-                    interactionSource = interactionSourceQuery.also { interactionSource ->
-                        LaunchedEffect(interactionSource) {
-                            interactionSource.interactions.collect {
-                                if (it is PressInteraction.Release) {
-                                    onEvent(SearchPageEvent.SetActivePage(Queries))
+                    interactionSource =
+                        interactionSourceQuery.also { interactionSource ->
+                            LaunchedEffect(interactionSource) {
+                                interactionSource.interactions.collect {
+                                    if (it is PressInteraction.Release) {
+                                        onEvent(SearchPageEvent.SetActivePage(Queries))
+                                    }
                                 }
                             }
-                        }
-                    },
+                        },
                     maxLines = 1,
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                    keyboardActions = KeyboardActions(onSearch = {
-                        onEvent(
-                            SearchPageEvent.GetProductsByQuery(
-                                query.value
+                    keyboardActions =
+                        KeyboardActions(onSearch = {
+                            onEvent(
+                                SearchPageEvent.GetProductsByQuery(
+                                    query.value,
+                                ),
                             )
-                        )
-                    })
+                        }),
                 )
 
                 when (searchState.activePage) {
-                    Queries -> QueriesComposable(
-                        state = queryState,
-                        onEvent = onEvent,
-                        setQuery = { query.value = it }
-                    )
+                    Queries ->
+                        QueriesComposable(
+                            state = queryState,
+                            onEvent = onEvent,
+                            setQuery = { query.value = it },
+                        )
 
-                    Result -> ResultComposable(
-                        state = searchState,
-                        onEvent = onEvent,
-                        query = query.value,
-                        goToProductDetail = { goToProductDetail(it) }
-                    )
+                    Result ->
+                        ResultComposable(
+                            state = searchState,
+                            onEvent = onEvent,
+                            query = query.value,
+                            goToProductDetail = { goToProductDetail(it) },
+                        )
                 }
-
-
             }
-        }
+        },
     )
 }

@@ -8,15 +8,17 @@ import javax.inject.Inject
 /**
  * This class adapt SearchProduct model to SearchProductDto.
  */
-class SearchProductAdapter @Inject constructor() :
+class SearchProductAdapter
+    @Inject
+    constructor() :
     ToModelAdapter<SearchProduct, SearchProductDto> {
-    override fun toModel(data: SearchProductDto): SearchProduct =
-        SearchProduct(
-            id = data.id,
-            title = data.title,
-            permalink = data.permalink,
-            thumbnail = data.thumbnail,
-            price = data.price,
-            availableQuantity = data.availableQuantity,
-        )
-}
+        override fun toModel(data: SearchProductDto): SearchProduct =
+            SearchProduct(
+                id = data.id,
+                title = data.title,
+                permalink = data.permalink,
+                thumbnail = data.thumbnail,
+                price = data.price,
+                availableQuantity = data.availableQuantity,
+            )
+    }

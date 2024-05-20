@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.Flow
  * Local data source for favorite products management.
  */
 interface ProductLocalDataSource {
-
     /**
      * Adds a favorite product.
      */

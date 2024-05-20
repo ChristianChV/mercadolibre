@@ -5,12 +5,10 @@ import christian.chamorro.network.errors.NetworkErrors
 import christian.chamorro.search.domain.models.SearchResult
 import kotlinx.coroutines.flow.Flow
 
-
 /**
  * Repository to manage search resources.
  */
 interface SearchRepository {
-
     /**
      * Get products by query from remote resource.
      */

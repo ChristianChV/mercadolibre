@@ -19,42 +19,43 @@ import christian.chamorro.uicomponents.colors.AppColors
 import christian.chamorro.uicomponents.composables.CustomCard
 
 @Composable
-fun ProductAttributes(
-    attributes: List<Attribute>
-) {
+fun ProductAttributes(attributes: List<Attribute>) {
     val typo = MaterialTheme.typography
 
     val rowPadding = PaddingValues(start = 12.dp, top = 8.dp, bottom = 8.dp, end = 12.dp)
 
     CustomCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .wrapContentHeight()
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .wrapContentHeight(),
     ) {
-
         Column(
             Modifier
-                .clip(RoundedCornerShape(15.dp))
+                .clip(RoundedCornerShape(15.dp)),
         ) {
-            attributes.forEachIndexed {index, attribute ->
+            attributes.forEachIndexed { index, attribute ->
                 Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(if (index % 2 == 0) AppColors.PrimaryContainer() else AppColors.OnPrimary())
+                    modifier =
+                        Modifier
+                            .fillMaxWidth()
+                            .background(if (index % 2 == 0) AppColors.PrimaryContainer() else AppColors.OnPrimary()),
                 ) {
                     Text(
-                        modifier = Modifier
-                            .weight(1f)
-                            .padding(rowPadding),
+                        modifier =
+                            Modifier
+                                .weight(1f)
+                                .padding(rowPadding),
                         text = attribute.name,
-                        style = typo.labelMedium
+                        style = typo.labelMedium,
                     )
                     Text(
-                        modifier = Modifier
-                            .weight(1f)
-                            .padding(rowPadding),
+                        modifier =
+                            Modifier
+                                .weight(1f)
+                                .padding(rowPadding),
                         text = attribute.valueName.orEmpty(),
-                        style = typo.labelMedium
+                        style = typo.labelMedium,
                     )
                 }
             }

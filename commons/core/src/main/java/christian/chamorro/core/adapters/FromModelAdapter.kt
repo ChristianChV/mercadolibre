@@ -4,7 +4,6 @@ package christian.chamorro.core.adapters
  * Interface to provide an adapter structure to map model to data.
  */
 interface FromModelAdapter<Model, Data> {
-
     /**
      * Function to map a single model to single data.
      */

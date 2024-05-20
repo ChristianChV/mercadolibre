@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface ProductDao {
-
     /**
      * Store locally favorite product.
      * @param product: Product entity
@@ -24,7 +23,7 @@ interface ProductDao {
     @Insert
     suspend fun insertProductAndAttributes(
         product: ProductEntity,
-        attributes: List<AttributeEntity>
+        attributes: List<AttributeEntity>,
     )
 
     /**

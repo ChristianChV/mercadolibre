@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.Flow
  * Repository to manage product resources.
  */
 interface ProductRepository {
-
     /**
      * Get product by id from remote resource.
      * @param id: Product identifier

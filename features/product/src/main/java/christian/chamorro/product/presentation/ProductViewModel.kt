@@ -15,68 +15,72 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductViewModel @Inject constructor(
-    private val getProductByIdUseCase: GetProductByIdUseCase,
-    private val addFavoriteUseCase: AddFavoriteUseCase,
-    private val removeFavoriteUseCase: RemoveFavoriteUseCase,
-    private val listenProductFavoriteUseCase: ListenProductFavoriteUseCase
-) : ViewModel() {
+class ProductViewModel
+    @Inject
+    constructor(
+        private val getProductByIdUseCase: GetProductByIdUseCase,
+        private val addFavoriteUseCase: AddFavoriteUseCase,
+        private val removeFavoriteUseCase: RemoveFavoriteUseCase,
+        private val listenProductFavoriteUseCase: ListenProductFavoriteUseCase,
+    ) : ViewModel() {
+        private val _state = MutableStateFlow(ProductState())
+        val state: StateFlow<ProductState> = _state
 
-    private val _state = MutableStateFlow(ProductState())
-    val state: StateFlow<ProductState> = _state
-
-    fun onEvent(event: ProductEvent) {
-        when (event) {
-            ProductEvent.AddFavorite -> addFavorite()
-            ProductEvent.RemoveFavorite -> removeFavorite()
-            is ProductEvent.GetProduct -> getProduct(event.id)
-        }
-    }
-
-    private fun getProduct(id: String) = viewModelScope.launch {
-        _state.update { it.copy(isLoading = true) }
-
-        val result = getProductByIdUseCase(id)
-
-        when (result) {
-            is AsyncResult.Failure -> {
-                _state.update {
-                    it.copy(
-                        isLoading = false,
-                        isError = result.error,
-                        content = null
-                    )
-                }
+        fun onEvent(event: ProductEvent) {
+            when (event) {
+                ProductEvent.AddFavorite -> addFavorite()
+                ProductEvent.RemoveFavorite -> removeFavorite()
+                is ProductEvent.GetProduct -> getProduct(event.id)
             }
+        }
 
-            is AsyncResult.Success -> {
-                _state.update {
-                    it.copy(
-                        isLoading = false,
-                        isError = null,
-                        content = result.value
-                    )
-                }
-                listenProductFavoriteUseCase(result.value.id).collect{ isFavorite ->
-                    _state.update {
-                        it.copy(isFavorite = isFavorite)
+        private fun getProduct(id: String) =
+            viewModelScope.launch {
+                _state.update { it.copy(isLoading = true) }
+
+                val result = getProductByIdUseCase(id)
+
+                when (result) {
+                    is AsyncResult.Failure -> {
+                        _state.update {
+                            it.copy(
+                                isLoading = false,
+                                isError = result.error,
+                                content = null,
+                            )
+                        }
+                    }
+
+                    is AsyncResult.Success -> {
+                        _state.update {
+                            it.copy(
+                                isLoading = false,
+                                isError = null,
+                                content = result.value,
+                            )
+                        }
+                        listenProductFavoriteUseCase(result.value.id).collect { isFavorite ->
+                            _state.update {
+                                it.copy(isFavorite = isFavorite)
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
 
-    private fun addFavorite() = viewModelScope.launch{
-        val product = _state.value.content
-        product?.let {
-            addFavoriteUseCase(it)
-        }
-    }
+        private fun addFavorite() =
+            viewModelScope.launch {
+                val product = _state.value.content
+                product?.let {
+                    addFavoriteUseCase(it)
+                }
+            }
 
-    private fun removeFavorite() = viewModelScope.launch{
-        val product = _state.value.content
-        product?.let {
-            removeFavoriteUseCase(it)
-        }
+        private fun removeFavorite() =
+            viewModelScope.launch {
+                val product = _state.value.content
+                product?.let {
+                    removeFavoriteUseCase(it)
+                }
+            }
     }
-}

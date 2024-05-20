@@ -7,11 +7,12 @@ import javax.inject.Inject
 /**
  * Get all favorites products.
  */
-class GetFavoritesUseCase @Inject constructor(
-    private val repository: ProductRepository
-) {
-
-    suspend operator fun invoke():List<Product> {
-        return repository.getFavorites()
+class GetFavoritesUseCase
+    @Inject
+    constructor(
+        private val repository: ProductRepository,
+    ) {
+        suspend operator fun invoke(): List<Product> {
+            return repository.getFavorites()
+        }
     }
-}

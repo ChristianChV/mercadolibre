@@ -10,7 +10,7 @@ data class ProductWithAttributes(
     @Embedded val product: ProductEntity,
     @Relation(
         parentColumn = "id",
-        entityColumn = "productId"
+        entityColumn = "productId",
     )
-    val attributes: List<AttributeEntity>
+    val attributes: List<AttributeEntity>,
 )

@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.Flow
  * Local data source for queries management.
  */
 interface SearchLocalDataSource {
-
     /**
      * Get all queries in storage.
      */

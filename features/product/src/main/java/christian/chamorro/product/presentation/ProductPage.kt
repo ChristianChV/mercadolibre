@@ -1,7 +1,6 @@
 package christian.chamorro.product.presentation
 
 import android.content.Context
-import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,18 +29,15 @@ import christian.chamorro.product.presentation.composables.ProductHeader
 import christian.chamorro.uicomponents.error.ErrorScreen
 import christian.chamorro.uicomponents.loading.LoadingScreen
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProductPage(
     navigationButton: @Composable () -> Unit,
     state: ProductState,
     onEvent: (ProductEvent) -> Unit,
-    id: String
+    id: String,
 ) {
-
     val context = LocalContext.current
-
 
     LaunchedEffect(true) {
         onEvent(ProductEvent.GetProduct(id))
@@ -50,8 +46,9 @@ fun ProductPage(
     Scaffold(
         topBar = {
             TopAppBar(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier =
+                    Modifier
+                        .fillMaxWidth(),
                 title = { Text(stringResource(id = R.string.product_title)) },
                 navigationIcon = navigationButton,
             )
@@ -63,24 +60,24 @@ fun ProductPage(
                     .fillMaxSize()
                     .padding(12.dp),
             ) {
-
                 when {
                     state.isLoading -> LoadingScreen()
-                    state.isError != null -> SetError(
-                        error = state.isError,
-                        context = context,
-                        reload = { onEvent(ProductEvent.GetProduct(id)) }
-                    )
+                    state.isError != null ->
+                        SetError(
+                            error = state.isError,
+                            context = context,
+                            reload = { onEvent(ProductEvent.GetProduct(id)) },
+                        )
 
-                    state.content != null -> SetContent(
-                        product = state.content,
-                        state = state,
-                        onEvent = onEvent
-                    )
+                    state.content != null ->
+                        SetContent(
+                            product = state.content,
+                            state = state,
+                            onEvent = onEvent,
+                        )
                 }
-
             }
-        }
+        },
     )
 }
 
@@ -88,22 +85,23 @@ fun ProductPage(
 private fun SetContent(
     product: Product,
     state: ProductState,
-    onEvent: (ProductEvent) -> Unit
+    onEvent: (ProductEvent) -> Unit,
 ) {
     val typo = MaterialTheme.typography
     val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(scrollState)
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .verticalScroll(scrollState),
     ) {
         Text(text = product.title, style = typo.labelLarge)
         Spacer(modifier = Modifier.height(24.dp))
         ProductHeader(
             product = product,
             isFavorite = state.isFavorite,
-            onEvent = onEvent
+            onEvent = onEvent,
         )
         Spacer(modifier = Modifier.height(12.dp))
         ProductAttributes(attributes = product.attributes)
@@ -115,13 +113,13 @@ private fun SetContent(
 private fun SetError(
     error: NetworkErrors,
     reload: () -> Unit,
-    context: Context
+    context: Context,
 ) {
     val titles = error.getDescription(context)
     ErrorScreen(
         modifier = Modifier.fillMaxSize(),
         title = titles.first,
         subtitle = titles.second,
-        reload = { reload() }
+        reload = { reload() },
     )
 }

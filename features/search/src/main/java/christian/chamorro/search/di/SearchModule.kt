@@ -16,7 +16,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object SearchModule {
-
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "dataStore")
 
     @Provides

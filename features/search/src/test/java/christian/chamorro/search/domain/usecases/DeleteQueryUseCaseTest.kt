@@ -7,17 +7,17 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 class DeleteQueryUseCaseTest {
-
     @Test
-    fun `invoke when is called should call deleteQuery from repository`() = runBlocking {
-        // Given
-        val repository = mockk<SearchRepository>(relaxed = true)
-        val sut =  DeleteQueryUseCase(repository)
+    fun `invoke when is called should call deleteQuery from repository`() =
+        runBlocking {
+            // Given
+            val repository = mockk<SearchRepository>(relaxed = true)
+            val sut = DeleteQueryUseCase(repository)
 
-        // When
-        sut.invoke("")
+            // When
+            sut.invoke("")
 
-        // Then
-        coVerify(exactly = 1){ repository.deleteQuery(any()) }
-    }
+            // Then
+            coVerify(exactly = 1) { repository.deleteQuery(any()) }
+        }
 }

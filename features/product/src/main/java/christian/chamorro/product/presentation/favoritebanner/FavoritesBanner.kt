@@ -37,7 +37,7 @@ import coil.compose.AsyncImage
 @Composable
 fun ColumnScope.FavoritesBanner(
     viewModel: FavoritesBannerViewModel = hiltViewModel(),
-    goToProductDetail: (String) -> Unit
+    goToProductDetail: (String) -> Unit,
 ) {
     LaunchedEffect(true) {
         viewModel.getFavorites()
@@ -46,13 +46,13 @@ fun ColumnScope.FavoritesBanner(
     val result = viewModel.state.collectAsState().value
 
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .then(
-                if (result.isNotEmpty()) Modifier.weight(1f) else Modifier
-            )
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .then(
+                    if (result.isNotEmpty()) Modifier.weight(1f) else Modifier,
+                ),
     ) {
-
         when {
             result.isEmpty() -> {}
             else -> SetContent(result, goToProductDetail)
@@ -63,23 +63,23 @@ fun ColumnScope.FavoritesBanner(
 @Composable
 fun SetContent(
     products: List<Product>,
-    goToProduct: (String) -> Unit
+    goToProduct: (String) -> Unit,
 ) {
     val typo = MaterialTheme.typography
 
     Column(
         Modifier.padding(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
     ) {
         Row(
             Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
                 text = stringResource(id = R.string.favorites),
-                color = AppColors.OnPrimary()
+                color = AppColors.OnPrimary(),
             )
         }
 
@@ -88,28 +88,29 @@ fun SetContent(
         LazyRow(
             Modifier
                 .fillMaxWidth()
-                .wrapContentHeight()
+                .wrapContentHeight(),
         ) {
-
             items(products) { product ->
                 CustomCard(
-                    modifier = Modifier
-                        .clickable {
-                            goToProduct(product.id)
-                        }
-                        .wrapContentHeight()
-                        .width(100.dp)
+                    modifier =
+                        Modifier
+                            .clickable {
+                                goToProduct(product.id)
+                            }
+                            .wrapContentHeight()
+                            .width(100.dp),
                 ) {
                     Column(
-                        modifier = Modifier
-                            .height(intrinsicSize = IntrinsicSize.Min)
-                            .padding(8.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        modifier =
+                            Modifier
+                                .height(intrinsicSize = IntrinsicSize.Min)
+                                .padding(8.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         AsyncImage(
                             modifier = Modifier.size(60.dp),
                             model = product.thumbnail,
-                            contentDescription = stringResource(id = R.string.product_image)
+                            contentDescription = stringResource(id = R.string.product_image),
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
@@ -118,13 +119,13 @@ fun SetContent(
                             color = AppColors.Primary(),
                             textAlign = TextAlign.Center,
                             maxLines = 2,
-                            overflow = TextOverflow.Ellipsis
+                            overflow = TextOverflow.Ellipsis,
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
                             text = product.price.toCurrency(),
                             style = typo.labelSmall,
-                            color = AppColors.Primary()
+                            color = AppColors.Primary(),
                         )
                     }
                 }
@@ -132,6 +133,4 @@ fun SetContent(
             }
         }
     }
-
-
 }

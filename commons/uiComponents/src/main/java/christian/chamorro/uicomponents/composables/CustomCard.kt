@@ -12,17 +12,18 @@ import christian.chamorro.uicomponents.colors.AppColors
 @Composable
 fun CustomCard(
     modifier: Modifier,
-    content: @Composable ColumnScope.()-> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Card(
         modifier = modifier,
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        colors = CardColors(
-            containerColor = AppColors.OnPrimary(),
-            contentColor = AppColors.Primary(),
-            disabledContainerColor = AppColors.PrimaryContainer(),
-            disabledContentColor = AppColors.PrimaryContainer()
-        ),
-        content = content
+        colors =
+            CardColors(
+                containerColor = AppColors.OnPrimary(),
+                contentColor = AppColors.Primary(),
+                disabledContainerColor = AppColors.PrimaryContainer(),
+                disabledContentColor = AppColors.PrimaryContainer(),
+            ),
+        content = content,
     )
 }

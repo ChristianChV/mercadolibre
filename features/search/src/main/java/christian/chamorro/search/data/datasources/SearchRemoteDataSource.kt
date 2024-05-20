@@ -8,7 +8,6 @@ import christian.chamorro.search.domain.models.SearchResult
  * Remote data source to manage product.
  */
 interface SearchRemoteDataSource {
-
     /**
      * Function get a product by id from remote source.
      * @param id: product identifier

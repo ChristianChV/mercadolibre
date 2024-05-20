@@ -12,12 +12,12 @@ import javax.inject.Inject
  * Get products by query from remote resource.
  */
 class GetProductsByQueryUseCase
-@Inject
-constructor(
-    private val repository: SearchRepository,
-) {
-    suspend operator fun invoke(query: String): AsyncResult<SearchResult, NetworkErrors> =
-        withContext(Dispatchers.IO) {
-            return@withContext repository.getProductsByQuery(query)
-        }
-}
+    @Inject
+    constructor(
+        private val repository: SearchRepository,
+    ) {
+        suspend operator fun invoke(query: String): AsyncResult<SearchResult, NetworkErrors> =
+            withContext(Dispatchers.IO) {
+                return@withContext repository.getProductsByQuery(query)
+            }
+    }

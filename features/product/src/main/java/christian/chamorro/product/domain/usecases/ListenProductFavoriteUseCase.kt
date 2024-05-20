@@ -7,11 +7,12 @@ import javax.inject.Inject
 /**
  * Listen product by id, if it exists return true else false.
  */
-class ListenProductFavoriteUseCase @Inject constructor(
-    private val repository: ProductRepository
-) {
-
-    suspend operator fun invoke(id: String): Flow<Boolean> {
-        return repository.listenProductFavorite(id)
+class ListenProductFavoriteUseCase
+    @Inject
+    constructor(
+        private val repository: ProductRepository,
+    ) {
+        suspend operator fun invoke(id: String): Flow<Boolean> {
+            return repository.listenProductFavorite(id)
+        }
     }
-}

@@ -7,11 +7,12 @@ import javax.inject.Inject
 /**
  * Remove product from favorites.
  */
-class RemoveFavoriteUseCase @Inject constructor(
-    private val repository: ProductRepository
-){
-
-    suspend operator fun invoke(product: Product){
-        repository.removeFromFavorites(product)
+class RemoveFavoriteUseCase
+    @Inject
+    constructor(
+        private val repository: ProductRepository,
+    ) {
+        suspend operator fun invoke(product: Product) {
+            repository.removeFromFavorites(product)
+        }
     }
-}

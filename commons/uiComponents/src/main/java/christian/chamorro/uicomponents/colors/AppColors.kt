@@ -4,7 +4,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-enum class AppColors{
+enum class AppColors {
     Primary,
     OnPrimary,
     PrimaryContainer,
@@ -33,12 +33,12 @@ enum class AppColors{
     ErrorContainer,
     InverseOnSurface,
     OnErrorContainer,
-    OnError;
-
+    OnError,
+    ;
 
     @Composable
     operator fun invoke(): Color {
-        return when(this){
+        return when (this) {
             Primary -> MaterialTheme.colorScheme.primary
             OnPrimary -> MaterialTheme.colorScheme.onPrimary
             PrimaryContainer -> MaterialTheme.colorScheme.primaryContainer

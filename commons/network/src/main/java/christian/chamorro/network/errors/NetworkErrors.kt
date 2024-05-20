@@ -1,12 +1,7 @@
 package christian.chamorro.network.errors
 
-import android.content.Context
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
-import christian.chamorro.network.R
 import retrofit2.HttpException
 import java.io.IOException
-
 
 /**
  * Specify possible network errors.
@@ -19,7 +14,6 @@ sealed class NetworkErrors(val msg: String) {
     data object UnknownException : NetworkErrors("Unknown exception")
 
     companion object {
-
         /**
          * Returns NetworkErrors depending on an remote exception.
          */

@@ -3,7 +3,6 @@ package christian.chamorro.search.presentation.composables
 import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,17 +31,18 @@ fun ResultComposable(
     state: SearchPageState,
     onEvent: (SearchPageEvent) -> Unit,
     query: String,
-    goToProductDetail: (String) -> Unit
+    goToProductDetail: (String) -> Unit,
 ) {
     val context = LocalContext.current
 
     when {
         state.isSearchLoading -> LoadingScreen()
-        state.isSearchError != null -> SetError(
-            error = state.isSearchError,
-            context = context,
-            reload = { onEvent(SearchPageEvent.GetProductsByQuery(query)) }
-        )
+        state.isSearchError != null ->
+            SetError(
+                error = state.isSearchError,
+                context = context,
+                reload = { onEvent(SearchPageEvent.GetProductsByQuery(query)) },
+            )
 
         state.searchContent != null -> SetContent(state.searchContent, goToProductDetail)
     }
@@ -51,9 +51,8 @@ fun ResultComposable(
 @Composable
 fun SetContent(
     result: SearchResult,
-    goToProductDetail: (String) -> Unit
+    goToProductDetail: (String) -> Unit,
 ) {
-
     Column(Modifier.fillMaxSize()) {
         Spacer(modifier = Modifier.height(4.dp))
 
@@ -65,18 +64,17 @@ fun SetContent(
         LazyVerticalStaggeredGrid(
             columns = StaggeredGridCells.Fixed(2),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalItemSpacing = 20.dp
+            verticalItemSpacing = 20.dp,
         ) {
             items(result.results) { searchProduct ->
 
                 SearchResultItem(
                     searchProduct = searchProduct,
-                    goToProductDetail = goToProductDetail
+                    goToProductDetail = goToProductDetail,
                 )
             }
         }
     }
-
 }
 
 @Composable
@@ -85,13 +83,12 @@ private fun SetError(
     context: Context,
     reload: () -> Unit,
 ) {
-
     val titles = error.getDescription(context)
 
     ErrorScreen(
         modifier = Modifier.fillMaxSize(1f),
         title = titles.first,
         subtitle = titles.second,
-        reload = { reload() }
+        reload = { reload() },
     )
 }

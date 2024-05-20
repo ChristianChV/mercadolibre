@@ -15,11 +15,11 @@ fun NavigationButton(navController: NavController) {
             if (navController.previousBackStackEntry != null) {
                 navController.popBackStack()
             }
-        }
+        },
     ) {
         Icon(
             painter = painterResource(id = R.drawable.arrow_back_icon),
-            contentDescription = stringResource(id = R.string.nat_button_back)
+            contentDescription = stringResource(id = R.string.nat_button_back),
         )
     }
 }

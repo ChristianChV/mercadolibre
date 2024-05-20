@@ -9,11 +9,12 @@ import javax.inject.Inject
 /**
  * Get product by id from remote source.
  */
-class GetProductByIdUseCase @Inject constructor(
-    private val repository: ProductRepository
-) {
-
-    suspend operator fun invoke(id: String): AsyncResult<Product, NetworkErrors> {
-        return repository.getProductById(id)
+class GetProductByIdUseCase
+    @Inject
+    constructor(
+        private val repository: ProductRepository,
+    ) {
+        suspend operator fun invoke(id: String): AsyncResult<Product, NetworkErrors> {
+            return repository.getProductById(id)
+        }
     }
-}

@@ -9,27 +9,29 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class ProductLocalDataSourceImpl @Inject constructor(
-    private val dao: ProductDao,
-    private val commonAdapter: CommonEntityToProductAdapter,
-    private val productAdapter: ProductToEntitiesAdapter
-) : ProductLocalDataSource {
-    override suspend fun addFavorite(product: Product) {
-        val (productEntity, attributeEntities) = productAdapter.fromModel(product)
-        dao.insertProductAndAttributes(productEntity, attributeEntities)
-    }
+class ProductLocalDataSourceImpl
+    @Inject
+    constructor(
+        private val dao: ProductDao,
+        private val commonAdapter: CommonEntityToProductAdapter,
+        private val productAdapter: ProductToEntitiesAdapter,
+    ) : ProductLocalDataSource {
+        override suspend fun addFavorite(product: Product) {
+            val (productEntity, attributeEntities) = productAdapter.fromModel(product)
+            dao.insertProductAndAttributes(productEntity, attributeEntities)
+        }
 
-    override suspend fun removeFavorite(product: Product) {
-        val productEntity = productAdapter.fromModel(product).first
-        dao.removeFromFavorites(productEntity)
-    }
+        override suspend fun removeFavorite(product: Product) {
+            val productEntity = productAdapter.fromModel(product).first
+            dao.removeFromFavorites(productEntity)
+        }
 
-    override suspend fun getFavorites(): List<Product> {
-        val common = dao.getFavorites()
-        return commonAdapter.toModelList(common)
-    }
+        override suspend fun getFavorites(): List<Product> {
+            val common = dao.getFavorites()
+            return commonAdapter.toModelList(common)
+        }
 
-    override suspend fun listenProductFavorite(id: String): Flow<Boolean> {
-        return dao.listenProductById(id).map { it != null  }
+        override suspend fun listenProductFavorite(id: String): Flow<Boolean> {
+            return dao.listenProductById(id).map { it != null }
+        }
     }
-}

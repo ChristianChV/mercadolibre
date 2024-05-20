@@ -13,11 +13,10 @@ import christian.chamorro.uicomponents.navigation.NavigationButton
 
 fun NavGraphBuilder.searchGraph(
     navController: NavController,
-    goToProductDetail: (String)->Unit
-){
+    goToProductDetail: (String) -> Unit,
+) {
     navigation(startDestination = SearchRoutes.Home.route, route = SearchRoutes.Root.route) {
-        composable(SearchRoutes.Home.route){
-
+        composable(SearchRoutes.Home.route) {
             val viewmodel = hiltViewModel<SearchPageViewModel>()
 
             SearchPage(
@@ -25,7 +24,7 @@ fun NavGraphBuilder.searchGraph(
                 navigationButton = { NavigationButton(navController = navController) },
                 searchState = viewmodel.searchState.collectAsState().value,
                 queryState = viewmodel.queryState.collectAsState().value,
-                onEvent = { viewmodel.onEvent(it) }
+                onEvent = { viewmodel.onEvent(it) },
             )
         }
     }

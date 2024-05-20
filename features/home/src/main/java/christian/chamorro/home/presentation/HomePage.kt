@@ -37,12 +37,12 @@ import christian.chamorro.uicomponents.colors.AppColors
 @Composable
 fun HomePage(
     goToSearch: () -> Unit,
-    goToProductDetail: (String)->Unit
+    goToProductDetail: (String) -> Unit,
 ) {
-
-    val interactionSourceSearchBar = remember {
-        MutableInteractionSource()
-    }
+    val interactionSourceSearchBar =
+        remember {
+            MutableInteractionSource()
+        }
     val typo = MaterialTheme.typography
 
     Scaffold(
@@ -52,31 +52,33 @@ fun HomePage(
                 Modifier
                     .padding(contentPadding)
                     .fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
-                        .background(AppColors.Secondary())
+                    modifier =
+                        Modifier
+                            .weight(1f)
+                            .fillMaxWidth()
+                            .background(AppColors.Secondary()),
                 ) {
                     Column(
                         Modifier.fillMaxSize(),
                         verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Image(
                             modifier = Modifier.height(140.dp),
                             painter = painterResource(id = R.drawable.applogo),
-                            contentDescription = stringResource(id = R.string.app_logo)
+                            contentDescription = stringResource(id = R.string.app_logo),
                         )
 
                         Spacer(modifier = Modifier.height(56.dp))
 
                         TextField(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp),
+                            modifier =
+                                Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp),
                             shape = RoundedCornerShape(25.dp),
                             value = "",
                             placeholder = { Text(text = stringResource(id = R.string.search_products_brands_more)) },
@@ -85,59 +87,63 @@ fun HomePage(
                             leadingIcon = {
                                 Icon(
                                     painter = painterResource(id = christian.chamorro.uicomponents.R.drawable.search_icon),
-                                    contentDescription = stringResource(id = R.string.search)
+                                    contentDescription = stringResource(id = R.string.search),
                                 )
                             },
-                            interactionSource = interactionSourceSearchBar.also { interactionSource ->
-                                LaunchedEffect(interactionSource) {
-                                    interactionSource.interactions.collect {
-                                        if (it is PressInteraction.Release) {
-                                            goToSearch()
+                            interactionSource =
+                                interactionSourceSearchBar.also { interactionSource ->
+                                    LaunchedEffect(interactionSource) {
+                                        interactionSource.interactions.collect {
+                                            if (it is PressInteraction.Release) {
+                                                goToSearch()
+                                            }
                                         }
-
                                     }
-                                }
-                            },
-                            colors = TextFieldDefaults.colors(
-                                focusedIndicatorColor = Color.Transparent,
-                                unfocusedIndicatorColor = Color.Transparent,
-                                disabledIndicatorColor = Color.Transparent
-                            )
+                                },
+                            colors =
+                                TextFieldDefaults.colors(
+                                    focusedIndicatorColor = Color.Transparent,
+                                    unfocusedIndicatorColor = Color.Transparent,
+                                    disabledIndicatorColor = Color.Transparent,
+                                ),
                         )
                     }
-
                 }
 
                 Column(
-                    modifier = Modifier
-                        .weight(1f)
-                        .background(AppColors.Primary())
-                        .fillMaxWidth(),
+                    modifier =
+                        Modifier
+                            .weight(1f)
+                            .background(AppColors.Primary())
+                            .fillMaxWidth(),
                 ) {
                     Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f),
+                        modifier =
+                            Modifier
+                                .fillMaxWidth()
+                                .weight(1f),
                         horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Text(
-                            modifier = Modifier
-                                .padding(start = 24.dp, end = 24.dp),
+                            modifier =
+                                Modifier
+                                    .padding(start = 24.dp, end = 24.dp),
                             textAlign = TextAlign.Center,
-                            text = stringResource(
-                                id = R.string.find_product_one_step
-                            ),
+                            text =
+                                stringResource(
+                                    id = R.string.find_product_one_step,
+                                ),
                             style = typo.titleLarge,
-                            color = AppColors.OnPrimary()
+                            color = AppColors.OnPrimary(),
                         )
                     }
 
                     FavoritesBanner(
-                        goToProductDetail = { goToProductDetail(it) }
+                        goToProductDetail = { goToProductDetail(it) },
                     )
                 }
             }
-        }
+        },
     )
 }

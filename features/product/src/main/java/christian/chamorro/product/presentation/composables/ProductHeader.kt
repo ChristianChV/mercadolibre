@@ -35,45 +35,49 @@ import coil.compose.AsyncImage
 fun ProductHeader(
     product: Product,
     isFavorite: Boolean,
-    onEvent: (ProductEvent)->Unit
+    onEvent: (ProductEvent) -> Unit,
 ) {
-    val favoriteIcon = if(isFavorite){
-        christian.chamorro.uicomponents.R.drawable.favorite_full_icon
-    } else {
-        christian.chamorro.uicomponents.R.drawable.favorite_border_icon
-    }
+    val favoriteIcon =
+        if (isFavorite) {
+            christian.chamorro.uicomponents.R.drawable.favorite_full_icon
+        } else {
+            christian.chamorro.uicomponents.R.drawable.favorite_border_icon
+        }
 
     val typo = MaterialTheme.typography
-    
-    val pagerState = rememberPagerState(
-        pageCount = { product.pictures.size },
-    )
+
+    val pagerState =
+        rememberPagerState(
+            pageCount = { product.pictures.size },
+        )
 
     CustomCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .wrapContentHeight()
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .wrapContentHeight(),
     ) {
         Box(
-            contentAlignment = Alignment.TopEnd
+            contentAlignment = Alignment.TopEnd,
         ) {
             Column(Modifier.padding(18.dp)) {
                 Row(
                     Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center
+                    horizontalArrangement = Arrangement.Center,
                 ) {
                     HorizontalPager(
-                        modifier = Modifier
-                            .size(160.dp)
-                            .padding(4.dp),
+                        modifier =
+                            Modifier
+                                .size(160.dp)
+                                .padding(4.dp),
                         state = pagerState,
-                        snapPosition = SnapPosition.Center
+                        snapPosition = SnapPosition.Center,
                     ) {
                         AsyncImage(
                             modifier = Modifier.size(160.dp),
                             model = product.pictures[it],
                             contentDescription = stringResource(id = R.string.product_image),
-                            contentScale = ContentScale.Crop
+                            contentScale = ContentScale.Crop,
                         )
                     }
                 }
@@ -87,21 +91,21 @@ fun ProductHeader(
             IconButton(
                 modifier = Modifier.padding(8.dp),
                 onClick = {
-                    if (isFavorite){
+                    if (isFavorite) {
                         onEvent(ProductEvent.RemoveFavorite)
-                    }else{
+                    } else {
                         onEvent(ProductEvent.AddFavorite)
                     }
-                }
+                },
             ) {
                 Icon(
                     painter = painterResource(id = favoriteIcon),
-                    contentDescription = stringResource(
-                        id = R.string.favorite
-                    )
+                    contentDescription =
+                        stringResource(
+                            id = R.string.favorite,
+                        ),
                 )
             }
         }
-
     }
 }

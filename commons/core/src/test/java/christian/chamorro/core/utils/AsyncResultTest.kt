@@ -1,16 +1,13 @@
 package christian.chamorro.core.utils
 
-import org.junit.Test
 import org.junit.Assert.assertEquals
+import org.junit.Test
 
 class AsyncResultTest {
-
-
-
     @Test
     fun `isSuccess when result is failure should return false`() {
         // Given
-        val sut:AsyncResult<Int, Int> = AsyncResult.Failure(0)
+        val sut: AsyncResult<Int, Int> = AsyncResult.Failure(0)
 
         // When
         val result = sut.isSuccess()
@@ -22,7 +19,7 @@ class AsyncResultTest {
     @Test
     fun `isSuccess when result is success should return true`() {
         // Given
-        val sut:AsyncResult<Int, Int> = AsyncResult.Success(0)
+        val sut: AsyncResult<Int, Int> = AsyncResult.Success(0)
 
         // When
         val result = sut.isSuccess()
@@ -34,7 +31,7 @@ class AsyncResultTest {
     @Test
     fun `isFailure when result is failure should return true`() {
 // Given
-        val sut:AsyncResult<Int, Int> = AsyncResult.Failure(0)
+        val sut: AsyncResult<Int, Int> = AsyncResult.Failure(0)
 
         // When
         val result = sut.isFailure()
@@ -46,7 +43,7 @@ class AsyncResultTest {
     @Test
     fun `isFailure when result is success should return false`() {
         // Given
-        val sut:AsyncResult<Int, Int> = AsyncResult.Success(0)
+        val sut: AsyncResult<Int, Int> = AsyncResult.Success(0)
 
         // When
         val result = sut.isFailure()
@@ -58,7 +55,7 @@ class AsyncResultTest {
     @Test
     fun `getValueOrNull when result is success should return value`() {
         // Given
-        val sut:AsyncResult<Int, Int> = AsyncResult.Success(0)
+        val sut: AsyncResult<Int, Int> = AsyncResult.Success(0)
 
         // When
         val result = sut.getValueOrNull()
@@ -70,7 +67,7 @@ class AsyncResultTest {
     @Test
     fun `getValueOrNull when result is failure should return null`() {
         // Given
-        val sut:AsyncResult<Int, Int> = AsyncResult.Failure(0)
+        val sut: AsyncResult<Int, Int> = AsyncResult.Failure(0)
 
         // When
         val result = sut.getValueOrNull()
@@ -82,7 +79,7 @@ class AsyncResultTest {
     @Test
     fun `getErrorOrNull when result is success should return null`() {
         // Given
-        val sut:AsyncResult<Int, Int> = AsyncResult.Success(0)
+        val sut: AsyncResult<Int, Int> = AsyncResult.Success(0)
 
         // When
         val result = sut.getErrorOrNull()
@@ -94,7 +91,7 @@ class AsyncResultTest {
     @Test
     fun `getErrorOrNull when result is failure should return error`() {
         // Given
-        val sut:AsyncResult<Int, Int> = AsyncResult.Failure(0)
+        val sut: AsyncResult<Int, Int> = AsyncResult.Failure(0)
 
         // When
         val result = sut.getErrorOrNull()

@@ -23,18 +23,18 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = HomeRoutes.Root.route
+                    startDestination = HomeRoutes.Root.route,
                 ) {
                     homeGraph(
                         goToSearch = { navController.navigate(SearchRoutes.Root.route) },
-                        goToProductDetail = { navController.navigate(ProductRoutes.ToHome(it).route) }
+                        goToProductDetail = { navController.navigate(ProductRoutes.ToHome(it).route) },
                     )
                     searchGraph(
                         navController = navController,
-                        goToProductDetail = { navController.navigate(ProductRoutes.ToHome(it).route) }
+                        goToProductDetail = { navController.navigate(ProductRoutes.ToHome(it).route) },
                     )
                     productGraph(
-                        navController = navController
+                        navController = navController,
                     )
                 }
             }

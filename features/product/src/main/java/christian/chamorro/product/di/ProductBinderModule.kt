@@ -14,7 +14,6 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class ProductBinderModule {
-
     @Binds
     abstract fun bindProductLocalDataSource(datasourceImpl: ProductLocalDataSourceImpl): ProductLocalDataSource
 

@@ -1,10 +1,8 @@
 package christian.chamorro.uicomponents.error
 
-import android.icu.text.CaseMap.Title
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
@@ -24,23 +22,24 @@ import christian.chamorro.uicomponents.colors.AppColors
 fun ErrorScreen(
     title: String,
     subtitle: String,
-    reload: ()-> Unit,
-    modifier: Modifier
-){
+    reload: () -> Unit,
+    modifier: Modifier,
+) {
     val typo = MaterialTheme.typography
 
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-
         Icon(
             modifier = Modifier.size(60.dp),
-            painter = painterResource(
-            id = R.drawable.error_icon),
+            painter =
+                painterResource(
+                    id = R.drawable.error_icon,
+                ),
             contentDescription = stringResource(id = R.string.error),
-            tint = AppColors.Error()
+            tint = AppColors.Error(),
         )
         Spacer(modifier = Modifier.height(24.dp))
         Text(text = title, style = typo.titleMedium)
@@ -50,11 +49,9 @@ fun ErrorScreen(
         Spacer(modifier = Modifier.height(48.dp))
 
         Button(
-            onClick = { reload() }
+            onClick = { reload() },
         ) {
             Text(text = stringResource(id = R.string.recharge))
         }
-
-
     }
 }

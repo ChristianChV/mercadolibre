@@ -14,7 +14,8 @@ class GetQueriesUseCase
     constructor(
         private val repository: SearchRepository,
     ) {
-        suspend operator fun invoke(): Flow<List<String>> = withContext(Dispatchers.IO){
-            return@withContext repository.getQueries()
-        }
+        suspend operator fun invoke(): Flow<List<String>> =
+            withContext(Dispatchers.IO) {
+                return@withContext repository.getQueries()
+            }
     }

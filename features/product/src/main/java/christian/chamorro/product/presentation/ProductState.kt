@@ -7,5 +7,5 @@ data class ProductState(
     val isLoading: Boolean = false,
     val content: Product? = null,
     val isError: NetworkErrors? = null,
-    val isFavorite: Boolean = false
+    val isFavorite: Boolean = false,
 )
