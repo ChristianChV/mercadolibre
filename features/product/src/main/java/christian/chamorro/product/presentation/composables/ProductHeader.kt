@@ -79,7 +79,7 @@ fun ProductHeader(
                 }
 
                 Spacer(modifier = Modifier.height(28.dp))
-                Text(text = product.originalPrice.toCurrency(), style = typo.titleLarge)
+                Text(text = product.price.toCurrency(), style = typo.titleLarge)
                 Text(text = stringResource(id = R.string.quantity) + product.initialQuantity, style = typo.titleSmall)
                 Text(text = product.warranty.orEmpty(), style = typo.titleSmall)
             }

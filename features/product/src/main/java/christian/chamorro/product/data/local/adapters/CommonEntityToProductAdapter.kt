@@ -17,7 +17,7 @@ class CommonEntityToProductAdapter @Inject constructor(
         condition = data.product.condition,
         thumbnail = data.product.thumbnail,
         initialQuantity = data.product.initialQuantity,
-        originalPrice = data.product.originalPrice,
+        price = data.product.originalPrice,
         acceptsMercadopago = data.product.acceptsMercadopago,
         pictures = data.product.pictures,
         warranty = data.product.warranty,

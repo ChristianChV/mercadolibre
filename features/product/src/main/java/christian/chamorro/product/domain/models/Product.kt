@@ -5,7 +5,7 @@ data class Product(
     val title: String,
     val condition: String,
     val thumbnail: String,
-    val originalPrice: Double,
+    val price: Double,
     val initialQuantity: Long,
     val acceptsMercadopago: Boolean,
     val warranty: String?,

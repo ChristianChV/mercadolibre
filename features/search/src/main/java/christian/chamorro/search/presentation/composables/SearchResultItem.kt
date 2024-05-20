@@ -59,7 +59,7 @@ fun SearchResultItem(
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(
-                    text = searchProduct.originalPrice.toCurrency(),
+                    text = searchProduct.price.toCurrency(),
                     textAlign = TextAlign.Center,
                     style = typo.bodyMedium
                 )

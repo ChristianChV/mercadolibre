@@ -5,7 +5,6 @@ import christian.chamorro.product.data.local.entities.AttributeEntity
 import christian.chamorro.product.data.local.entities.ProductEntity
 import christian.chamorro.product.domain.models.Product
 import javax.inject.Inject
-import javax.inject.Singleton
 
 
 /**
@@ -21,7 +20,7 @@ class ProductToEntitiesAdapter @Inject constructor(
             title = model.title,
             condition = model.condition,
             thumbnail = model.thumbnail,
-            originalPrice = model.originalPrice,
+            originalPrice = model.price,
             acceptsMercadopago = model.acceptsMercadopago,
             pictures = model.pictures,
             initialQuantity = model.initialQuantity,

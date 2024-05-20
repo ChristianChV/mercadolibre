@@ -59,5 +59,6 @@ dependencies {
     kapt(libs.hilt.compiler)
     kapt(libs.hilt.annotation)
     testImplementation(libs.bundles.testing)
+    testImplementation(libs.mockk)
     androidTestImplementation(libs.bundles.androidTesting)
 }

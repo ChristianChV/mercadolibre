@@ -122,7 +122,7 @@ fun SetContent(
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = product.originalPrice.toCurrency(),
+                            text = product.price.toCurrency(),
                             style = typo.labelSmall,
                             color = AppColors.Primary()
                         )

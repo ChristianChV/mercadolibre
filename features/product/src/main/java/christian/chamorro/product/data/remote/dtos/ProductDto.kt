@@ -1,6 +1,5 @@
 package christian.chamorro.product.data.remote.dtos
 
-import christian.chamorro.product.domain.models.Attribute
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -11,8 +10,7 @@ data class ProductDto(
     val title: String,
     val condition: String,
     val thumbnail: String,
-    @SerializedName("original_price")
-    val originalPrice: Double,
+    val price: Double,
     @SerializedName("initial_quantity")
     val initialQuantity: Long,
     @SerializedName("accepts_mercadopago")

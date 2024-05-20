@@ -23,6 +23,7 @@ navigation = "2.8.0-beta01"
 androidxDataStore = "1.1.1"
 kotlinBom = "1.8.22"
 material3 = "1.2.1"
+mockk = "1.13.10"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -74,6 +75,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "androidxTestExpresso" }
 androidx-test-compose-junit = { module = "androidx.compose.ui:ui-test-junit4" }
+mockk = { module = "io.mockk:mockk-android", version.ref = "mockk" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

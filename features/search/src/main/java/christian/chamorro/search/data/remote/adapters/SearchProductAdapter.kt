@@ -16,7 +16,7 @@ class SearchProductAdapter @Inject constructor() :
             title = data.title,
             permalink = data.permalink,
             thumbnail = data.thumbnail,
-            originalPrice = data.originalPrice,
+            price = data.price,
             availableQuantity = data.availableQuantity,
         )
 }

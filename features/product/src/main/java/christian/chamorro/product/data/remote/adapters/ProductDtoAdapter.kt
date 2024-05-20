@@ -15,7 +15,7 @@ class ProductDtoAdapter @Inject constructor(): ToModelAdapter<Product, ProductDt
         title = data.title,
         condition = data.condition,
         thumbnail = data.thumbnail,
-        originalPrice = data.originalPrice,
+        price = data.price,
         initialQuantity = data.initialQuantity,
         acceptsMercadopago = data.acceptsMercadopago,
         warranty = data.warranty,
