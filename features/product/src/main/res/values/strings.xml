@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="product_title">Producto</string>
+    <string name="product_title">Detalle</string>
     <string name="product_image">Imagen del producto</string>
     <string name="quantity">"Cantidad disponible: "</string>
-    <string name="product_warranty">"Garantia: "</string>
+    <string name="favorite">Favorito</string>
 </resources>

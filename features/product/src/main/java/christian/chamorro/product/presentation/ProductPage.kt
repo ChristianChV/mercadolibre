@@ -71,7 +71,8 @@ fun ProductPage(
                         reload = { onEvent(ProductEvent.GetProduct(id)) }
                     )
                     state.content != null -> SetContent(
-                        product = state.content
+                        product = state.content,
+                        state = state
                     )
                 }
 
@@ -82,12 +83,15 @@ fun ProductPage(
 
 @Composable
 private fun SetContent(
-    product: Product
+    product: Product,
+    state: ProductState
 ) {
     val typo = MaterialTheme.typography
     Text(text = product.title, style = typo.labelLarge)
     Spacer(modifier = Modifier.height(24.dp))
-    Header(product)
+    Header(
+        product = product,
+        isFavorite = state.isFavorite)
 
 }
 
