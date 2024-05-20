@@ -8,13 +8,15 @@ import christian.chamorro.home.presentation.HomePage
 import christian.chamorro.home.routes.HomeRoutes
 
 fun NavGraphBuilder.homeGraph(
-    goToSearch: ()->Unit
+    goToSearch: ()->Unit,
+    goToProductDetail: (String)-> Unit
 ){
     navigation(startDestination = HomeRoutes.Home.route, route = HomeRoutes.Root.route) {
 
         composable(HomeRoutes.Home.route){
             HomePage(
-                goToSearch = goToSearch
+                goToSearch = goToSearch,
+                goToProductDetail = goToProductDetail
             )
         }
     }

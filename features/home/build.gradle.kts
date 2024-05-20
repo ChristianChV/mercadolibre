@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation(project(":commons:uiComponents"))
+    implementation(project(":features:product"))
 
     implementation(libs.androidx.appcompat)
     implementation(libs.bundles.hilt)

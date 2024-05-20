@@ -26,7 +26,8 @@ class MainActivity : ComponentActivity() {
                     startDestination = HomeRoutes.Root.route
                 ) {
                     homeGraph(
-                        goToSearch = { navController.navigate(SearchRoutes.Root.route) }
+                        goToSearch = { navController.navigate(SearchRoutes.Root.route) },
+                        goToProductDetail = { navController.navigate(ProductRoutes.ToHome(it).route) }
                     )
                     searchGraph(
                         navController = navController,

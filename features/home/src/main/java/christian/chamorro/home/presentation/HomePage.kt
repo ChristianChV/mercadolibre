@@ -7,6 +7,7 @@ import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,11 +31,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import christian.chamorro.home.R
+import christian.chamorro.product.presentation.favoritebanner.FavoritesBanner
 import christian.chamorro.uicomponents.colors.AppColors
 
 @Composable
 fun HomePage(
-    goToSearch: () -> Unit
+    goToSearch: () -> Unit,
+    goToProductDetail: (String)->Unit
 ) {
 
     val interactionSourceSearchBar = remember {
@@ -105,21 +108,33 @@ fun HomePage(
 
                 }
 
-                Box(
+                Column(
                     modifier = Modifier
                         .weight(1f)
                         .background(AppColors.Primary())
                         .fillMaxWidth(),
-                    contentAlignment = Alignment.Center
                 ) {
-                    Text(
-                        modifier = Modifier.padding(start = 24.dp, end = 24.dp),
-                        textAlign = TextAlign.Center,
-                        text = stringResource(
-                            id = R.string.find_product_one_step
-                        ),
-                        style = typo.titleLarge,
-                        color = AppColors.OnPrimary()
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            modifier = Modifier
+                                .padding(start = 24.dp, end = 24.dp),
+                            textAlign = TextAlign.Center,
+                            text = stringResource(
+                                id = R.string.find_product_one_step
+                            ),
+                            style = typo.titleLarge,
+                            color = AppColors.OnPrimary()
+                        )
+                    }
+
+                    FavoritesBanner(
+                        goToProductDetail = { goToProductDetail(it) }
                     )
                 }
             }
