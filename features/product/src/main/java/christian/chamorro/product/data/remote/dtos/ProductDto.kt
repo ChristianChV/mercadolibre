@@ -14,7 +14,7 @@ data class ProductDto(
     val initialQuantity: Long,
     @SerializedName("accepts_mercadopago")
     val acceptsMercadopago: Boolean,
-    val warranty: String,
+    val warranty: String?,
     val attributes: List<AttributeDto>,
     val pictures: List<PictureDto>,
 )

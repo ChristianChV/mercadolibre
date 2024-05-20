@@ -24,12 +24,13 @@ import christian.chamorro.uicomponents.colors.AppColors
 fun ErrorScreen(
     title: String,
     subtitle: String,
-    reload: ()-> Unit
+    reload: ()-> Unit,
+    modifier: Modifier
 ){
     val typo = MaterialTheme.typography
 
     Column(
-        Modifier.fillMaxSize(),
+        modifier = modifier,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

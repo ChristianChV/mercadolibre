@@ -16,6 +16,6 @@ data class ProductEntity(
     val originalPrice: Double,
     val initialQuantity: Long,
     val acceptsMercadopago: Boolean,
-    val warranty: String,
+    val warranty: String?,
     val pictures: List<String>,
 )

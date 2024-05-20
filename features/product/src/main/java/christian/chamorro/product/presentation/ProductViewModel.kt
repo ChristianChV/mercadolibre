@@ -27,8 +27,8 @@ class ProductViewModel @Inject constructor(
 
     fun onEvent(event: ProductEvent) {
         when (event) {
-            is ProductEvent.RemoveFavorite -> removeFavorite()
-            is ProductEvent.AddFavorite -> addFavorite()
+            ProductEvent.AddFavorite -> addFavorite()
+            ProductEvent.RemoveFavorite -> removeFavorite()
             is ProductEvent.GetProduct -> getProduct(event.id)
         }
     }

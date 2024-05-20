@@ -26,14 +26,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import christian.chamorro.product.R
 import christian.chamorro.product.domain.models.Product
+import christian.chamorro.product.presentation.ProductEvent
 import christian.chamorro.uicomponents.adapters.toCurrency
 import christian.chamorro.uicomponents.composables.CustomCard
 import coil.compose.AsyncImage
 
 @Composable
-fun Header(
+fun ProductHeader(
     product: Product,
-    isFavorite: Boolean
+    isFavorite: Boolean,
+    onEvent: (ProductEvent)->Unit
 ) {
     val favoriteIcon = if(isFavorite){
         christian.chamorro.uicomponents.R.drawable.favorite_full_icon
@@ -79,12 +81,18 @@ fun Header(
                 Spacer(modifier = Modifier.height(28.dp))
                 Text(text = product.originalPrice.toCurrency(), style = typo.titleLarge)
                 Text(text = stringResource(id = R.string.quantity) + product.initialQuantity, style = typo.titleSmall)
-                Text(text = product.warranty, style = typo.titleSmall)
+                Text(text = product.warranty.orEmpty(), style = typo.titleSmall)
             }
 
             IconButton(
                 modifier = Modifier.padding(8.dp),
-                onClick = { /*TODO*/ }
+                onClick = {
+                    if (isFavorite){
+                        onEvent(ProductEvent.RemoveFavorite)
+                    }else{
+                        onEvent(ProductEvent.AddFavorite)
+                    }
+                }
             ) {
                 Icon(
                     painter = painterResource(id = favoriteIcon),

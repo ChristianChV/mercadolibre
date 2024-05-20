@@ -18,7 +18,7 @@ fun NavGraphBuilder.productGraph(
 
         composable(ProductRoutes.Home.route){ entry ->
             val viewmodel = hiltViewModel<ProductViewModel>()
-            val id = entry.arguments?.getString("id") ?: ""
+            val id = entry.arguments?.getString("id").orEmpty()
             ProductPage(
                 navigationButton = { NavigationButton(navController = navController) },
                 state = viewmodel.state.collectAsState().value,
