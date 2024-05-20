@@ -4,6 +4,9 @@ import christian.chamorro.product.domain.repositories.ProductRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+/**
+ * Listen product by id, if it exists return true else false.
+ */
 class ListenProductFavoriteUseCase @Inject constructor(
     private val repository: ProductRepository
 ) {

@@ -5,6 +5,9 @@ import androidx.compose.ui.res.stringResource
 import christian.chamorro.network.R
 import christian.chamorro.network.errors.NetworkErrors
 
+/**
+ * Return a pair of strings depending on network error, first value is main title and second value is subtitle.
+ */
 fun NetworkErrors.getDescription(context: Context): Pair<String, String>{
 
     return when(this){

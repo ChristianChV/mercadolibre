@@ -5,6 +5,10 @@ import christian.chamorro.product.data.remote.dtos.ProductDto
 import christian.chamorro.product.domain.models.Product
 import javax.inject.Inject
 
+
+/**
+ * This class adapt Product model to ProductDto.
+ */
 class ProductDtoAdapter @Inject constructor(): ToModelAdapter<Product, ProductDto> {
     override fun toModel(data: ProductDto): Product = Product(
         id = data.id,

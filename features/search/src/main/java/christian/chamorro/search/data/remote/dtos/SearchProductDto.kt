@@ -2,6 +2,9 @@ package christian.chamorro.search.data.remote.dtos
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * SearchProduct data access object.
+ */
 data class SearchProductDto(
     val id: String,
     val title: String,

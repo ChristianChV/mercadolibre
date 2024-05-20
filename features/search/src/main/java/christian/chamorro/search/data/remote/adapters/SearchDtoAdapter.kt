@@ -5,6 +5,9 @@ import christian.chamorro.search.data.remote.dtos.SearchResultDto
 import christian.chamorro.search.domain.models.SearchResult
 import javax.inject.Inject
 
+/**
+ * This class adapt SearchResult model to SearchResultDto.
+ */
 class SearchDtoAdapter
     @Inject
     constructor(

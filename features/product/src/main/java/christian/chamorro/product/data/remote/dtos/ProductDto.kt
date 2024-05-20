@@ -3,6 +3,9 @@ package christian.chamorro.product.data.remote.dtos
 import christian.chamorro.product.domain.models.Attribute
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Product data access object.
+ */
 data class ProductDto(
     val id: String,
     val title: String,

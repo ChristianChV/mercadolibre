@@ -5,6 +5,9 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
+/**
+ * Attribute entity class.
+ */
 @Entity(tableName = "attribute", foreignKeys = [
     ForeignKey(
         entity = ProductEntity::class,

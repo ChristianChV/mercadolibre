@@ -8,6 +8,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+/**
+ * Get products by query from remote resource.
+ */
 class GetProductsByQueryUseCase
 @Inject
 constructor(

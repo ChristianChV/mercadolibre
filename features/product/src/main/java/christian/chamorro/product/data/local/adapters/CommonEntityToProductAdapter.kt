@@ -5,6 +5,9 @@ import christian.chamorro.product.data.local.entities.ProductWithAttributes
 import christian.chamorro.product.domain.models.Product
 import javax.inject.Inject
 
+/**
+ * This class adapt Product model to ProductWithAttributes model.
+ */
 class CommonEntityToProductAdapter @Inject constructor(
     private val attributeAdapter: AttributeAdapter
 ) : ToModelAdapter<Product, ProductWithAttributes> {

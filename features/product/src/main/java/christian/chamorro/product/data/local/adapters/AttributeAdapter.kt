@@ -6,6 +6,10 @@ import christian.chamorro.product.data.local.entities.AttributeEntity
 import christian.chamorro.product.domain.models.Attribute
 import javax.inject.Inject
 
+
+/**
+ * This class adapt attribute entity to model and backwards.
+ */
 class AttributeAdapter @Inject constructor() :
     ToModelAdapter<Attribute, AttributeEntity>,
     FromModelAdapter<Attribute, AttributeEntity> {

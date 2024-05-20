@@ -6,6 +6,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+/**
+ * Get all queries in storage
+ */
 class GetQueriesUseCase
     @Inject
     constructor(

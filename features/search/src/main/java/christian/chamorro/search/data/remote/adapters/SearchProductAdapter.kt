@@ -5,6 +5,9 @@ import christian.chamorro.search.data.remote.dtos.SearchProductDto
 import christian.chamorro.search.domain.models.SearchProduct
 import javax.inject.Inject
 
+/**
+ * This class adapt SearchProduct model to SearchProductDto.
+ */
 class SearchProductAdapter @Inject constructor() :
     ToModelAdapter<SearchProduct, SearchProductDto> {
     override fun toModel(data: SearchProductDto): SearchProduct =

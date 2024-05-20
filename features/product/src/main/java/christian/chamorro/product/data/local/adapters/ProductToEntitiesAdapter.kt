@@ -7,6 +7,10 @@ import christian.chamorro.product.domain.models.Product
 import javax.inject.Inject
 import javax.inject.Singleton
 
+
+/**
+ * This class adapt Product model to pair of ProductEntity and List of AttributeEntity.
+ */
 class ProductToEntitiesAdapter @Inject constructor(
     private val attributeAdapter: AttributeAdapter
 ) :

@@ -6,6 +6,9 @@ import christian.chamorro.product.domain.models.Product
 import christian.chamorro.product.domain.repositories.ProductRepository
 import javax.inject.Inject
 
+/**
+ * Get product by id from remote source.
+ */
 class GetProductByIdUseCase @Inject constructor(
     private val repository: ProductRepository
 ) {

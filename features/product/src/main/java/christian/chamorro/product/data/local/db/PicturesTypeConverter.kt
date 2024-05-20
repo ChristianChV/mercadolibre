@@ -4,6 +4,9 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
+/**
+ * Type converter which map list<String> to String and backwards.
+ */
 class PicturesTypeConverter {
     @TypeConverter
     fun fromString(value: String): List<String> {

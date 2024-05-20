@@ -6,6 +6,9 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
+/**
+ * Product entity class.
+ */
 @Entity(tableName = "product")
 data class ProductEntity(
     @PrimaryKey(autoGenerate = false)

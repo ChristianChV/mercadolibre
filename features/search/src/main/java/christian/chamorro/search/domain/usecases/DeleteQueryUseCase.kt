@@ -6,6 +6,9 @@ import kotlinx.coroutines.withContext
 import okhttp3.Dispatcher
 import javax.inject.Inject
 
+/**
+ * Delete query
+ */
 class DeleteQueryUseCase
     @Inject
     constructor(

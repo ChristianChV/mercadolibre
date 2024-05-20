@@ -9,13 +9,22 @@ import kotlinx.coroutines.flow.Flow
 interface ProductLocalDataSource {
 
     /**
-     * Adds a product to local storage.
+     * Adds a favorite product.
      */
     suspend fun addFavorite(product: Product)
 
+    /**
+     * Remove a favorite product.
+     */
     suspend fun removeFavorite(product: Product)
 
+    /**
+     * Returns all favorite products.
+     */
     suspend fun getFavorites(): List<Product>
 
+    /**
+     * Listen a product and return a true if it is on favorites otherwise false.
+     */
     suspend fun listenProductFavorite(id: String): Flow<Boolean>
 }
