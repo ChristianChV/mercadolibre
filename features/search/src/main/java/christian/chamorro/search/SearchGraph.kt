@@ -22,7 +22,7 @@ fun NavGraphBuilder.searchGraph(
 
             SearchPage(
                 goToProductDetail = goToProductDetail,
-                navigationButton ={ NavigationButton(navController = navController) },
+                navigationButton = { NavigationButton(navController = navController) },
                 searchState = viewmodel.searchState.collectAsState().value,
                 queryState = viewmodel.queryState.collectAsState().value,
                 onEvent = { viewmodel.onEvent(it) }

@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -21,11 +23,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import christian.chamorro.search.R
 import christian.chamorro.search.presentation.composables.QueriesComposable
 import christian.chamorro.search.presentation.composables.ResultComposable
-import christian.chamorro.search.presentation.models.SearchActivePage.*
+import christian.chamorro.search.presentation.models.SearchActivePage.Queries
+import christian.chamorro.search.presentation.models.SearchActivePage.Result
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -75,8 +79,10 @@ fun SearchPage(
                     trailingIcon = {
                         Icon(
                             modifier = Modifier.clickable {
-                                onEvent(SearchPageEvent.GetProductsByQuery(query.value))
-                                onEvent(SearchPageEvent.SetActivePage(Result))
+                                if (query.value.isNotEmpty()) {
+                                    onEvent(SearchPageEvent.GetProductsByQuery(query.value))
+                                    onEvent(SearchPageEvent.SetActivePage(Result))
+                                }
                             },
                             painter = painterResource(
                                 id = christian.chamorro.uicomponents.R.drawable.search_icon
@@ -93,7 +99,15 @@ fun SearchPage(
                             }
                         }
                     },
-                    maxLines = 1
+                    maxLines = 1,
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+                    keyboardActions = KeyboardActions(onSearch = {
+                        onEvent(
+                            SearchPageEvent.GetProductsByQuery(
+                                query.value
+                            )
+                        )
+                    })
                 )
 
                 when (searchState.activePage) {
@@ -102,6 +116,7 @@ fun SearchPage(
                         onEvent = onEvent,
                         setQuery = { query.value = it }
                     )
+
                     Result -> ResultComposable(
                         state = searchState,
                         onEvent = onEvent,

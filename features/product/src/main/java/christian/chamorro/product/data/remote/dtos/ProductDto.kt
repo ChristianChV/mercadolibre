@@ -9,7 +9,7 @@ data class ProductDto(
     val condition: String,
     val thumbnail: String,
     @SerializedName("original_price")
-    val originalPrice: Long,
+    val originalPrice: Double,
     @SerializedName("initial_quantity")
     val initialQuantity: Long,
     @SerializedName("accepts_mercadopago")

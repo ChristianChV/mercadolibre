@@ -4,8 +4,9 @@ import christian.chamorro.core.adapters.FromModelAdapter
 import christian.chamorro.core.adapters.ToModelAdapter
 import christian.chamorro.product.data.local.entities.AttributeEntity
 import christian.chamorro.product.domain.models.Attribute
+import javax.inject.Inject
 
-class AttributeAdapter :
+class AttributeAdapter @Inject constructor() :
     ToModelAdapter<Attribute, AttributeEntity>,
     FromModelAdapter<Attribute, AttributeEntity> {
     override fun fromModel(model: Attribute): AttributeEntity  = AttributeEntity(

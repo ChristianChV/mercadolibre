@@ -6,6 +6,7 @@ import christian.chamorro.product.data.datasources.ProductLocalDataSource
 import christian.chamorro.product.data.datasources.ProductRemoteDataSource
 import christian.chamorro.product.domain.models.Product
 import christian.chamorro.product.domain.repositories.ProductRepository
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class ProductRepositoryImpl @Inject constructor(
@@ -26,5 +27,9 @@ class ProductRepositoryImpl @Inject constructor(
 
     override suspend fun getFavorites(): List<Product> {
         return local.getFavorites()
+    }
+
+    override suspend fun listenProductFavorite(id: String): Flow<Boolean> {
+        return local.listenProductFavorite(id)
     }
 }

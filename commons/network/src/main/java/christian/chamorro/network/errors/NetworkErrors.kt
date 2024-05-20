@@ -1,5 +1,9 @@
 package christian.chamorro.network.errors
 
+import android.content.Context
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import christian.chamorro.network.R
 import retrofit2.HttpException
 import java.io.IOException
 

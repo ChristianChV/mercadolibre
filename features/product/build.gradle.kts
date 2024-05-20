@@ -44,6 +44,7 @@ android {
 dependencies {
     implementation(project(":commons:network"))
     implementation(project(":commons:core"))
+    implementation(project(":commons:uiComponents"))
 
     implementation(libs.androidx.appcompat)
     implementation(libs.bundles.retrofit)

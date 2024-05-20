@@ -8,7 +8,8 @@ import androidx.room.Transaction
 import christian.chamorro.product.data.local.entities.AttributeEntity
 import christian.chamorro.product.data.local.entities.ProductEntity
 import christian.chamorro.product.data.local.entities.ProductWithAttributes
-import retrofit2.http.DELETE
+import kotlinx.coroutines.flow.Flow
+
 
 @Dao
 interface ProductDao {
@@ -25,4 +26,7 @@ interface ProductDao {
     @Transaction
     @Query("SELECT * FROM product")
     suspend fun getFavorites(): List<ProductWithAttributes>
+
+    @Query("SELECT * FROM product WHERE id = :id")
+    fun listenProductById(id: String): Flow<ProductEntity?>
 }

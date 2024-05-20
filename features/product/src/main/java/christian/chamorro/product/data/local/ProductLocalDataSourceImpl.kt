@@ -5,6 +5,8 @@ import christian.chamorro.product.data.local.adapters.CommonEntityToProductAdapt
 import christian.chamorro.product.data.local.adapters.ProductToEntitiesAdapter
 import christian.chamorro.product.data.local.daos.ProductDao
 import christian.chamorro.product.domain.models.Product
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class ProductLocalDataSourceImpl @Inject constructor(
@@ -25,5 +27,9 @@ class ProductLocalDataSourceImpl @Inject constructor(
     override suspend fun getFavorites(): List<Product> {
         val common = dao.getFavorites()
         return commonAdapter.toModelList(common)
+    }
+
+    override suspend fun listenProductFavorite(id: String): Flow<Boolean> {
+        return dao.listenProductById(id).map { it != null  }
     }
 }

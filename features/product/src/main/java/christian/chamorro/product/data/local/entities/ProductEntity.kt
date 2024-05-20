@@ -13,7 +13,7 @@ data class ProductEntity(
     val title: String,
     val condition: String,
     val thumbnail: String,
-    val originalPrice: Long,
+    val originalPrice: Double,
     val initialQuantity: Long,
     val acceptsMercadopago: Boolean,
     val warranty: String,

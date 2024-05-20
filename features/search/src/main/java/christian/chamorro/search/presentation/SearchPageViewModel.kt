@@ -82,7 +82,7 @@ class SearchPageViewModel @Inject constructor(
                     it.copy(
                         isSearchLoading = false,
                         searchContent = result.value,
-                        isSearchBarActive = false
+                        isSearchBarActive = true
                     )
                 }
             }

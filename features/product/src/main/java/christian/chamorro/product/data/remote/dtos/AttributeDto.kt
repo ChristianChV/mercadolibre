@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 data class AttributeDto(
     val name: String,
     @SerializedName("value_name")
-    val valueName: String,
+    val valueName: String?,
 )

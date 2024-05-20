@@ -3,6 +3,8 @@ package christian.chamorro.product.domain.repositories
 import christian.chamorro.core.utils.AsyncResult
 import christian.chamorro.network.errors.NetworkErrors
 import christian.chamorro.product.domain.models.Product
+import kotlinx.coroutines.flow.Flow
+
 
 interface ProductRepository {
 
@@ -13,4 +15,6 @@ interface ProductRepository {
     suspend fun removeFromFavorites(product: Product)
 
     suspend fun getFavorites(): List<Product>
+
+    suspend fun listenProductFavorite(id: String): Flow<Boolean>
 }

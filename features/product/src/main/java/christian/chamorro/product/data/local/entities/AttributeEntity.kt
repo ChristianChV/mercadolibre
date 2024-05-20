@@ -19,5 +19,5 @@ data class AttributeEntity(
     @ColumnInfo(index = true)
     val productId: String,
     val name: String,
-    val valueName: String,
+    val valueName: String?,
 )

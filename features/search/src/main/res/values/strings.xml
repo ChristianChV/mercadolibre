@@ -4,12 +4,6 @@
     <string name="empty_queries">Empieza a buscar y obten recomendaciones.</string>
     <string name="previous_query">Busqueda previa</string>
     <string name="search">Buscar</string>
-    <string name="network_error">Error en la conexión</string>
-    <string name="verify_network_connection">Verifica tu conexión a internet e intenta de nuevo.</string>
-    <string name="api_error">Error cliente - servidor</string>
-    <string name="error">Error</string>
-    <string name="unknown_error">Error desconocido</string>
-    <string name="try_again">Intenta de nuevo</string>
     <string name="total_found">"Total encontrados: "</string>
     <string name="product_image">Imagen del producto</string>
     <string name="available_ammount">"Cantidad disponible: "</string>
