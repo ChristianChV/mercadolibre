@@ -1,4 +1,4 @@
-# Mercado Libre 
+# Mercado Libre Search
 
 |   Personal Info    |                                 |
 |-------|---------------------------------|
@@ -7,53 +7,52 @@
 | Phone | +57 3016611974                  |
 
 <br>
-MercadoLibre - Search es una aplicación de prueba donde se consume el API pública de Mercado Libre y se almacena de forma local los productos favoritos y el historial de busqueda
+MercadoLibre - Search is a test application where the Mercado Libre public API is consumed, the favorite products and search history are stored locally.
 
 ## Demo
 <img src="Demo.gif" width="300">
 
 ## Architecture
 
-El proyecto fue estructurado en modulos para aplicación, features y librerias comúnes, esto permite que cada módulo sea reutilizable y tenga una responsabilidad única.
+The project was structured in modules: application, features and common libraries, this allows each module to be reusable and have a single responsibility.
 
 ![Structure](projectStructure.png)
 
 |Module|Description|
 |---|---|
-|**App**|Este módulo integra toda la aplicación y maneja la navegación.|
-|**Features**|Módulos que representan una caracteristica que peude ser reutilizada o intercambiable.|
-|**Commons**|Librerias y utilidades que son usadas por los features.|
+|**App**|This module integrates the entire application and handles navigation.|
+|**Features**|Modules that represent a feature that can be reused or interchangeable.|
+|**Commons**|Libraries and utilities that are used by the features.|
 
-Cada feature module se basa en arquitectura limpia segmentando las capas de presentación, dominio y data.
+Each feature module is based on clean architecture segmenting the presentation, domain and data layers.
 
 ![Architecture](FeatureArchitecture.png)
 
 |Layer|Description|
 |---|---|
-|**Domain**|Esta capa define la lógica y reglas de negocio a través de los usecases y models, adicionalmente define los repositorios para acceder a la información.|
-|**Presentation**|Capa de presentación donde se define los composables, screens y viewmodels para manejar el estado de las vistas, depende de la capa de domain.|
-|**Data**|Capa para el acceso a datos que implementa los repositorios definidos en domain y los data sources locales y remotos.|
+|**Domain**|This layer defines the logic and business rules through usecases and models, and additionally defines the repositories to access the information.|
+|**Presentation**|Presentation layer where composables, screens and viewmodels are defined to manage the state of the views, it depends on the domain layer.|
+|**Data**|Layer for data access that implements the repositories defined in domain and the local and remote data sources.|
 
 ## Code Quality
 
-Para asegurar la calidad del código se usaron las siguientes herramientas 
+To ensure the quality of the code, the following tools were used:
 
 |Tool|Description|
 |---|---|
-|**Unit Testing**|Se implementaron pruebas unitarias en repositorios y usecases usando junit y la libreria Mockk.|
-|**Ktlint**|Linter paraverificar el estilo y calidad de código.|
-|**Manual regregressions**|Pruebas funcionales con emulador siguiendo los flujos de los requerimientos.|
-|**Crashalytics**|Herramienta de firebase para loggear errores.|
+|**Unit Testing**|Implemented unit tests in repositories and usecases using junit and the Mockk library.|
+|**Ktlint**|Linter to verify code style and quality.|
+|**Manual regregressions**|Functional tests with emulator following the requirements flows.|
 
 ## Libraries
 
-Para el desarrollo de estre proyecto se usaron las siguientes librerias:
+For the development of this project the following libraries were used:
 
 |Library|Description|
 |---|---|
-|**Room**|Libreria oficial de android para el almacenamiento en base de datos sqlite.|
-|**Retrofit**|Libreria para implementar cliente http.|
-|**Jetpack Compose**|Libreria oficial de android para la implementacion de ui con composables.|
-|**Coil**|Libreria para la carga y caché de imagenes.|
-|**Mockk**|Libreria para la implementación de mocks y stubs en pruebas unitarias.|
-|**Hilt**|Libreria oficial de android para la inyección de dependencias.|
+|**Room**|Official Android library for SQLite database storage.|
+|**Retrofit**|Library to implement http client.|
+|**Jetpack Compose**|Official Android library for UI implementation with composables.|
+|**Coil**|Library for loading and caching images.|
+|**Mockk**|Library for the implementation of mocks and stubs in unit tests.|
+|**Hilt**|Official Android library for dependency injection.|
