@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_title">Busca tus productos</string>
+    <string name="empty_queries">Empieza a buscar y obten recomendaciones.</string>
+    <string name="previous_query">Busqueda previa</string>
+    <string name="search">Buscar</string>
+    <string name="total_found">Total encontrados: </string>
+    <string name="product_image">Imagen del producto</string>
+    <string name="available_ammount">Cantidad disponible: </string>
+    <string name="delete_query">Borrar busqueda en historial</string>
+</resources>

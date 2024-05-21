@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="verify_network_connection">Verifica tu conexión a internet e intenta de nuevo.</string>
-    <string name="api_error">Error cliente - servidor.</string>
+    <string name="verify_network_connection">Check your internet connection and try again.</string>
+    <string name="api_error">Client - server error.</string>
     <string name="error">Error</string>
-    <string name="network_error">Error en la conexión</string>
-    <string name="try_again">Intenta de nuevo.</string>
-    <string name="unknown_error">Error desconocido.</string>
+    <string name="network_error">Connection error</string>
+    <string name="try_again">Try again.</string>
+    <string name="unknown_error">Unknown error.</string>
 </resources>

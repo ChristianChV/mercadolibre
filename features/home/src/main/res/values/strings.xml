@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_logo">Logo de la aplicación</string>
-    <string name="search_products_brands_more">Buscar productos, marcas y más...</string>
-    <string name="find_product_one_step">¡Encuentra lo que buscas a un paso!</string>
-    <string name="search">Buscar</string>
+    <string name="app_logo">Mercado Libre</string>
+    <string name="search_products_brands_more">Search products, brands and more…</string>
+    <string name="find_product_one_step">Find what you are looking for in one step!</string>
+    <string name="search">Search</string>
 </resources>
