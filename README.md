@@ -10,7 +10,7 @@
 MercadoLibre - Search es una aplicación de prueba donde se consume el API pública de Mercado Libre y se almacena de forma local los productos favoritos y el historial de busqueda
 
 ## Demo
-![Preview](Demo.gif | width=200)
+<img src="Demo.gif" width="300">
 
 ## Architecture
 
